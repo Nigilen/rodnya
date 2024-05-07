@@ -1,4 +1,4 @@
-image: node:18
+image: node:18.19-alpine3.18
 
 include:
   - project: 'fr/ci'
