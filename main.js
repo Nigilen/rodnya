@@ -36,7 +36,7 @@ let model;
 let startYRotation = -0.5;
 let startXRotation = -0.5;
 
-loader.load('/Avocado.gltf', function (gltf) {
+loader.load('../Avocado.gltf', function (gltf) {
 	console.log(gltf)
 	gltf.scene.scale.set(50, 50, 50);
 	// gltf.scene.rotation.y = startYRotation;
