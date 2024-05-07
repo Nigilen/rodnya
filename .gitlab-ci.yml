@@ -17,7 +17,8 @@ deploy-to-test-server:
   script:
     - npm install
     - npm run build
-    - rsync --delete -avz --progress -e "ssh -p $TEST_SERVER_PORT" dist/ $TEST_SERVER_USER@$TEST_SERVER_HOST:www/front.friendlee.pro/rodnya/
+    - rsync --delete -avz --progress -e "ssh -p $TEST_SERVER_PORT" dist/ $TEST_SERVER_USER@$TEST_SERVER_HOST:www/front.friendlee.pro/rodnya
+
   only:
     - dev
   tags:
