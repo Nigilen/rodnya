@@ -22,10 +22,24 @@ camera.position.z = 5;
 // floor.rotation.x = -Math.PI * 0.5;
 // scene.add(floor);
 
-const memiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.61);
-memiLight.position.set(0, 50, 0);
-memiLight.receiveShadow = true;
-scene.add(memiLight);
+
+// Свет
+// const memiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.3);
+// memiLight.position.set(0, 20000, 0);
+// memiLight.receiveShadow = false;
+// scene.add(memiLight);
+
+const color = 0xFFFFFF;
+const intensity = 500;
+const light = new THREE.PointLight(color, intensity);
+light.position.set(10, 10, -10);
+scene.add(light);
+scene.add(light.target);
+
+
+const newlight = new THREE.PointLight(0xFFFFFF, 500);
+newlight.position.set(-10, -10, 10);
+scene.add(newlight);
 
 
 
@@ -36,14 +50,21 @@ let model;
 let startYRotation = -0.5;
 let startXRotation = -0.5;
 
-loader.load('Avocado.gltf', function (gltf) {
-	console.log(gltf)
-	gltf.scene.scale.set(50, 50, 50);
+// klub.glb
+loader.load('Clubok.gltf', function (gltf) {
+// loader.load('Avocado.gltf', function (gltf) {
+	model = gltf.scene;
+	model.scale.set(.15, .15, .15);
 	// gltf.scene.rotation.y = startYRotation;
 	// gltf.scene.rotation.x = startXRotation;
-	gltf.scene.position.y = -1.5;
-	model = gltf.scene;
-	scene.add(gltf.scene);
+	// model.position.y = -1.5;
+	
+
+	// const material = new THREE.MeshPhongMaterial({color: 0x44aa88});
+
+	// const modelCompleete = new THREE.Mesh(model, material);
+
+	scene.add(model);
 
 }, undefined, function (error) {
 
