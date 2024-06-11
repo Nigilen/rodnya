@@ -65,12 +65,34 @@ loader.load(
 		scene.add(model);
 
 		// directional light
-		const light = new THREE.DirectionalLight(0xffffff, 1.2);
+		/* const light = new THREE.DirectionalLight(0xffffff, 1.2);
 		light.position.set(0, 0, 300).normalize();
 		light.castShadow = true;
 		light.target = model;
 		light.updateMatrixWorld(); 
-		scene.add(light);
+		scene.add(light); */
+
+		// spotlight props
+		const spotLight = new THREE.SpotLight( 0xffffff );
+		spotLight.position.set( 0, 0, 15 );
+		spotLight.intensity = 120;
+		spotLight.angle = Math.PI / 28;
+		spotLight.penumbra = 0.5;
+
+		spotLight.target = model;
+		spotLight.map = model;
+
+		spotLight.castShadow = true;
+		model.receiveShadow = true;
+
+		spotLight.shadow.mapSize.width = 1024;
+		spotLight.shadow.mapSize.height = 1024;
+
+		spotLight.shadow.camera.near = 20;
+		spotLight.shadow.camera.far = 1000;
+		spotLight.shadow.camera.fov = 60;
+
+		scene.add( spotLight );
 
 		handleResize();
 		renderer.render(scene, camera);
