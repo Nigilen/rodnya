@@ -28,9 +28,12 @@
         }
     }
 
-    // mobile
     @include break-down($break-tablet) {
         margin-bottom: rem(124);
+    }
+    
+    // mobile
+    @include break-down($break-tablet - 50) {
         height: $headerHeightMobile;
 
         &__logo {
