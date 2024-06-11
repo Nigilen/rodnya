@@ -7,19 +7,26 @@
 	</head>
 	<body>
 		<header class="header">
-			<div class="header__logoWrapper">
-				<img src="/icons/logo.svg" alt="Лого" />
-			</div>
-			<nav class="header__nav desktop">
-				<ul class="header__nav--ul">
-					<li>О нас</li>
-					<li>Кейсы</li>
-					<li>Контакты</li>
+			<div class="header__logo"></div>
+			<nav class="header__nav">
+				<ul class="header__nav--ul desktop">
+					<li><a href="/">О нас</a></li>
+					<li><a href="/">Кейсы</a></li>
+					<li><a href="/">Контакты</a></li>
 				</ul>
+				<div class="mobile">
+					<button class="header__nav--btn mobile" id="toggle-nav-btn"></button>
+					<ul class="header__nav--ul mobile"
+						id="toggle-nav-list"
+					>
+						<li><a href="/">О нас</a></li>
+						<li><a href="/">Кейсы</a></li>
+						<li><a href="/">Контакты</a></li>
+					</ul>
+				</div>
 			</nav>
 		</header>
 		<main class="main">
-			<img src="/text/main_text_desktop.svg" alt="" class="main__textImg" />
 		</main>
 		<footer class="footer">
 			<div class="footer__left">Креатив,&nbsp;который<br/>становится&nbsp;новостью</div>

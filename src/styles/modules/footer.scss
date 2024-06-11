@@ -4,4 +4,17 @@
     @include flex_row(space-between, center);
     @include fontMedium(18, 21.6);
     color: $red;
+    height: $footerHeightDesktop;
+
+
+    // before-tablet
+    @include break-down($break-tablet) {
+        height: $footerHeightMobile;
+    }
+
+
+    // mobile
+    @include break-down(500) {
+        @include fontMedium(14, 16.8);
+    }
 }

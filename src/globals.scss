@@ -31,6 +31,7 @@ button {
 }
 
 a {
+    color: inherit;
     cursor: pointer;
     text-decoration: none;
 }
@@ -40,11 +41,24 @@ ul, ol {
 }
 
 body {
-    @include flex_col;
+    @include flex_col(stretch, flex-start);
 	min-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    
+    background-color: $white;
+
     padding-block: map-get(map-get($spacing-map, "desktop"), $key: block);
     padding-inline: map-get(map-get($spacing-map, "desktop"), $key: inline);
+
+    // tablet
+    @include break-down($break-custom-desktop) {
+        padding-block: map-get(map-get($spacing-map, "tablet"), $key: block);
+        padding-inline: map-get(map-get($spacing-map, "tablet"), $key: inline);
+    }
+
+    // mobile 
+    @include break-down($break-tablet) {
+        padding-block: map-get(map-get($spacing-map, "mobile"), $key: block);
+        padding-inline: map-get(map-get($spacing-map, "mobile"), $key: inline);
+    }
 }
