@@ -58,7 +58,7 @@ const initScreenSizes = {
 } 
 
 loader.load(
-	`${process.env.VITE_BASE_URL}Clubok.gltf`,
+	'Clubok.gltf',
 	(gltf) => {
 		model = gltf.scene;
 		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
