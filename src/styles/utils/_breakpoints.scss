@@ -1,0 +1,19 @@
+@use 'functions' as *;
+
+$break-desktop: 1360;
+$break-tablet-start: 1024;
+$break-tablet: 768;
+$break-mobile-start: 540;
+$break-mobile: 378;
+
+@mixin break-down($max-width) {
+    @media screen and (max-width: rem($max-width)) {
+        @content;
+    }
+}
+
+@mixin break-up($min-width) {
+    @media screen and (min-width: rem($min-width)) {
+        @content;
+    }
+}

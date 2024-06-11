@@ -1,0 +1,7 @@
+@use '../utils/' as *;
+
+.footer {
+    @include flex_row(space-between, center);
+    @include fontMedium(18, 21.6);
+    color: $red;
+}

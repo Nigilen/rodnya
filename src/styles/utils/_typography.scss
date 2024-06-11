@@ -1,0 +1,17 @@
+@use 'functions' as *;
+
+@mixin fontBold($sizePx, $lineHeightPx, $letterSpacingEm: 0) {
+    font-family: Manrope;
+    font-weight: 800;
+    font-size: rem($sizePx);
+    line-height: rem($lineHeightPx);
+    letter-spacing: #{$letterSpacingEm}#{em};
+}
+
+@mixin fontMedium($sizePx, $lineHeightPx, $letterSpacingEm: 0) {
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: rem($sizePx);
+    line-height: rem($lineHeightPx);
+    letter-spacing: #{$letterSpacingEm}#{em};
+}
