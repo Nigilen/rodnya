@@ -16,6 +16,7 @@ deploy-to-test-server:
     SERVER_KNOWN_HOSTS: $TEST_SERVER_KNOWN_HOSTS
   script:
     - npm install
+    - cp ${TEST_ENV} .env
     - npm run build
     - rsync --delete -avz --progress -e "ssh -p $TEST_SERVER_PORT" dist/ $TEST_SERVER_USER@$TEST_SERVER_HOST:www/front.friendlee.pro/rodnya
 
