@@ -66,20 +66,10 @@ loader.load(
 		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
 		scene.add(model);
 
-		// directional light
-		/* const light = new THREE.DirectionalLight(0xffffff, 1.2);
-		light.position.set(0, 0, 300).normalize();
-		light.castShadow = true;
-		light.target = model;
-		light.updateMatrixWorld(); 
-		scene.add(light); */
-
 		// spotlight props
 		const spotLight = new THREE.SpotLight( 0xffffff );
 		spotLight.position.set( 0, 0, 15 );
 		spotLight.intensity = 300;
-		spotLight.angle = Math.PI / 28;
-		spotLight.penumbra = 0.7;
 
 		spotLight.target = model;
 		spotLight.map = model;
