@@ -35,7 +35,7 @@ const scaleBoundaries = {
 	min: 0.12,
 };
 
-function findModelScaler(currentWidth /*, currentHeight */) {
+function findModelScaler(currentWidth) {
 	let scaler = (modelInitScaler * currentWidth / initScreenSizes.width) + 0.05;
 	scaler = Math.min(scaler, scaleBoundaries.max);
 	scaler = Math.max(scaler, scaleBoundaries.min);
@@ -57,8 +57,10 @@ const initScreenSizes = {
 	height: 900,
 } 
 
+const pathToModel = 'clubock_colored.glb';
+
 loader.load(
-	'Clubok.gltf',
+	pathToModel,
 	(gltf) => {
 		model = gltf.scene;
 		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
@@ -75,9 +77,9 @@ loader.load(
 		// spotlight props
 		const spotLight = new THREE.SpotLight( 0xffffff );
 		spotLight.position.set( 0, 0, 15 );
-		spotLight.intensity = 120;
+		spotLight.intensity = 300;
 		spotLight.angle = Math.PI / 28;
-		spotLight.penumbra = 0.5;
+		spotLight.penumbra = 0.7;
 
 		spotLight.target = model;
 		spotLight.map = model;
