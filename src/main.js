@@ -57,7 +57,7 @@ const initScreenSizes = {
 	height: 900,
 } 
 
-const pathToModel = 'clubock_colored.glb';
+const pathToModel = 'clubock_model.glb';
 
 loader.load(
 	pathToModel,
