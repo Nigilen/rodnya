@@ -19,8 +19,6 @@
         background-repeat: no-repeat;
     }
 
-    // tablet
-
     // mobile
     @include break-down($break-tablet) {
         background: url('/text/text_mobile.svg');
@@ -28,5 +26,9 @@
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: rem(130);
+    }
+
+    @include break-down(500) {
+        transform: scaleY(1.4);
     }
 }
