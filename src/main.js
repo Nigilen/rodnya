@@ -104,6 +104,11 @@ const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
 
 window.addEventListener('mousemove', (e) => {
+	// check if desktop
+	const windowWidth = document.documentElement.clientWidth;
+	const isDesktop = windowWidth >= 900;
+	if (!isDesktop) return;
+
 	mouseXNormalized = ( e.clientX - windowHalfX );
     mouseYNormalized = ( e.clientY - windowHalfY );
 
