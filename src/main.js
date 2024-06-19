@@ -49,6 +49,7 @@ window.addEventListener('resize', handleResize, { passive: true });
 // model load
 let model;
 const loader = new GLTFLoader();
+let spotLight;
 
 // value to scale model on desktop
 const modelInitScaler = 0.2;
@@ -67,9 +68,10 @@ loader.load(
 		scene.add(model);
 
 		// spotlight props
-		const spotLight = new THREE.SpotLight( 0xffffff );
-		spotLight.position.set( 0, 0, 15 );
+		spotLight = new THREE.SpotLight( 0xffffff );
+		spotLight.position.set( 0, 0, 50 );
 		spotLight.intensity = 300;
+		spotLight.angle = Math.PI / 2;
 
 		spotLight.target = model;
 		spotLight.map = model;
@@ -129,6 +131,14 @@ function animate() {
     targetVector.y += destY;
 
     model.lookAt( targetVector );
+
+	let spotlightPosition = new THREE.Vector3(mouseXNormalized, -mouseYNormalized, -95);
+    spotlightPosition.sub(model.position).normalize().multiplyScalar(-10);
+	spotLight.position.x *= -1;
+
+    spotLight.position.copy(spotlightPosition);
+    spotLight.target.position.copy(model.position);
+    spotLight.updateMatrixWorld(true);
 
     renderer.render( scene, camera );
 }
