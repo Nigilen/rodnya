@@ -71,32 +71,6 @@ let mouseXNormalized = 0, mouseYNormalized = 0;
 const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
 
-// animation
-let destX = 0, destY = 0;
-
-function animate() {
-    if (!model) return;
-
-	destX = mouseXNormalized - targetVector.x;
-	destY = -mouseYNormalized - targetVector.y;
-	
-	targetVector.x += destX;
-    targetVector.y += destY;
-
-    model.lookAt( targetVector );
-
-	spotlightPosition = new THREE.Vector3(mouseXNormalized / 2, -mouseYNormalized / 1.5, -50);
-    spotlightPosition.sub(model.position).normalize().multiplyScalar(-10);
-	spotLight.position.x *= -1;
-
-    spotLight.position.copy(spotlightPosition);
-    spotLight.target.position.copy(model.position);
-    spotLight.updateMatrixWorld(true);
-
-    renderer.render( scene, camera );
-}
-
-
 // resize
 /** Базовые обпаботчики событий длы поддержки ресайза */
 function handleResize() {
@@ -129,6 +103,30 @@ function findModelScaler(currentWidth) {
 	return scaler;
 }
 
+// animation
+let destX = 0, destY = 0;
+
+function animate() {
+    if (!model) return;
+
+	destX = mouseXNormalized - targetVector.x;
+	destY = -mouseYNormalized - targetVector.y;
+	
+	targetVector.x += destX;
+    targetVector.y += destY;
+
+    model.lookAt( targetVector );
+
+	spotlightPosition = new THREE.Vector3(mouseXNormalized / 2, -mouseYNormalized / 1.5, -50);
+    spotlightPosition.sub(model.position).normalize().multiplyScalar(-10);
+	spotLight.position.x *= -1;
+
+    spotLight.position.copy(spotlightPosition);
+    spotLight.target.position.copy(model.position);
+    spotLight.updateMatrixWorld(true);
+
+    renderer.render( scene, camera );
+}
 
 window.addEventListener('mousemove', (e) => {
 	// check if desktop
