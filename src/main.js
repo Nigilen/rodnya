@@ -6,44 +6,10 @@ import './globals.scss';
 
 const { sizes, camera, scene, renderer } = init();
 
-// resize
-/** Базовые обпаботчики событий длы поддержки ресайза */
-function handleResize() {
-	const windowWidth = document.documentElement.clientWidth;
-	const windowHeight = document.documentElement.clientHeight;
-
-	// Обновляем размеры
-	sizes.width = windowWidth;
-	sizes.height = windowHeight;
-
-	// Обновляем соотношение сторон камеры
-	camera.aspect = sizes.width / sizes.height;
-	camera.updateProjectionMatrix();
-
-	// Обновляем renderer
-	renderer.setSize(sizes.width, sizes.height);
-	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-	renderer.render(scene, camera);
-
-	// обновляем модель
-	const modelScaler = findModelScaler(windowWidth);
-	model.scale.set(modelScaler, modelScaler, modelScaler);
-}
-
 const scaleBoundaries = {
 	max: 0.2,
 	min: 0.12,
 };
-
-function findModelScaler(currentWidth) {
-	let scaler = (modelInitScaler * currentWidth / initScreenSizes.width) + 0.05;
-	scaler = Math.min(scaler, scaleBoundaries.max);
-	scaler = Math.max(scaler, scaleBoundaries.min);
-	
-	return scaler;
-}
-
-window.addEventListener('resize', handleResize, { passive: true });
 
 
 // model load
@@ -69,7 +35,7 @@ loader.load(
 
 		// spotlight props
 		spotLight = new THREE.SpotLight( 0xffffff );
-		spotLight.position.set( 0, 0, 50 );
+		spotLight.position.set( 0, 0, 10 );
 		spotLight.intensity = 300;
 		spotLight.angle = Math.PI / 2;
 
@@ -100,23 +66,10 @@ loader.load(
 
 // mouse move event
 let targetVector = new THREE.Vector3(0, 0, 600);
-
+let spotlightPosition;
 let mouseXNormalized = 0, mouseYNormalized = 0;
 const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
-
-window.addEventListener('mousemove', (e) => {
-	// check if desktop
-	const windowWidth = document.documentElement.clientWidth;
-	const isDesktop = windowWidth >= 900;
-	if (!isDesktop) return;
-
-	mouseXNormalized = ( e.clientX - windowHalfX );
-    mouseYNormalized = ( e.clientY - windowHalfY );
-
-	requestAnimationFrame(animate);
-});
-
 
 // animation
 let destX = 0, destY = 0;
@@ -132,7 +85,7 @@ function animate() {
 
     model.lookAt( targetVector );
 
-	let spotlightPosition = new THREE.Vector3(mouseXNormalized, -mouseYNormalized, -95);
+	spotlightPosition = new THREE.Vector3(mouseXNormalized / 2, -mouseYNormalized / 1.5, -50);
     spotlightPosition.sub(model.position).normalize().multiplyScalar(-10);
 	spotLight.position.x *= -1;
 
@@ -142,3 +95,51 @@ function animate() {
 
     renderer.render( scene, camera );
 }
+
+
+// resize
+/** Базовые обпаботчики событий длы поддержки ресайза */
+function handleResize() {
+	const windowWidth = document.documentElement.clientWidth;
+	const windowHeight = document.documentElement.clientHeight;
+
+	// Обновляем размеры
+	sizes.width = windowWidth;
+	sizes.height = windowHeight;
+
+	// Обновляем соотношение сторон камеры
+	camera.aspect = sizes.width / sizes.height;
+	camera.updateProjectionMatrix();
+
+	// обновляем модель
+	const modelScaler = findModelScaler(windowWidth);
+	model.scale.set(modelScaler, modelScaler, modelScaler);
+
+	// Обновляем renderer
+	renderer.setSize(sizes.width, sizes.height);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+	renderer.render(scene, camera);
+}
+
+function findModelScaler(currentWidth) {
+	let scaler = (modelInitScaler * currentWidth / initScreenSizes.width) + 0.05;
+	scaler = Math.min(scaler, scaleBoundaries.max);
+	scaler = Math.max(scaler, scaleBoundaries.min);
+	
+	return scaler;
+}
+
+
+window.addEventListener('mousemove', (e) => {
+	// check if desktop
+	const windowWidth = document.documentElement.clientWidth;
+	const isDesktop = windowWidth >= 900;
+	if (!isDesktop) return;
+
+	mouseXNormalized = ( e.clientX - windowHalfX );
+    mouseYNormalized = ( e.clientY - windowHalfY );
+
+	requestAnimationFrame(animate);
+}, { passive: true });
+
+window.addEventListener('resize', handleResize, { passive: true });
