@@ -30,7 +30,7 @@
     &__img {
         position: absolute;
         display: block;
-        width: max(min(calc(32.5vw + 135px), rem($max-img-width)), rem($min-img-width));
+        width: max(min(calc(34.5vw + 20vh), rem($max-img-width)), rem($min-img-width));
         height: auto;
         z-index: 100;
         object-fit: cover;
@@ -38,6 +38,13 @@
         // when 3d model loads -> hide img
         &.hidden {
             display: none;
+        }
+    }
+
+    // big tablet - no model loads
+    @include break-down(1280) {
+        &__img {
+            width: max(min(calc(34.5vw + 20vh), rem($max-img-width)), rem($min-img-width));
         }
     }
 

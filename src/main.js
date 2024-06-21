@@ -7,10 +7,11 @@ import './globals.scss';
 const { sizes, camera, scene, renderer } = init();
 
 const scaleBoundaries = {
-	max: 0.2,
+	max: 0.25,
 	min: 0.04,
 };
 
+const desktopBreakpoint = 1280;
 
 // model load
 let model;
@@ -19,7 +20,7 @@ const loader = new GLTFLoader();
 let spotLight;
 
 // value to scale model on desktop
-const modelInitScaler = 0.05;
+const modelInitScaler = 0.06;
 const initScreenSizes = {
 	width: 1440,
 	height: 900,
@@ -34,7 +35,7 @@ loader.load(
 		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
 		// hide picture, add 3d model
 		// only on desktop (>= 900px screenWidth)
-		const isDesktop = document.documentElement.clientWidth >= 900;
+		const isDesktop = document.documentElement.clientWidth >= desktopBreakpoint;
 		if (!isDesktop) return;
 
 		imgToHideOnLoad.classList.add("hidden");
@@ -141,7 +142,7 @@ function animate() {
 window.addEventListener('mousemove', (e) => {
 	// check if desktop
 	const windowWidth = document.documentElement.clientWidth;
-	const isDesktop = windowWidth >= 900;
+	const isDesktop = windowWidth >= desktopBreakpoint;
 	if (!isDesktop) return;
 
 	mouseXNormalized = ( e.clientX - windowHalfX );
