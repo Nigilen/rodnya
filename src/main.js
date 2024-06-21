@@ -8,35 +8,43 @@ const { sizes, camera, scene, renderer } = init();
 
 const scaleBoundaries = {
 	max: 0.2,
-	min: 0.12,
+	min: 0.04,
 };
 
 
 // model load
 let model;
+const imgToHideOnLoad = document.querySelector(".main__img");
 const loader = new GLTFLoader();
 let spotLight;
 
 // value to scale model on desktop
-const modelInitScaler = 0.2;
+const modelInitScaler = 0.05;
 const initScreenSizes = {
 	width: 1440,
 	height: 900,
 } 
 
-const pathToModel = 'clubock_model.glb';
+const pathToModel = 'a3.gltf';
 
 loader.load(
 	pathToModel,
 	(gltf) => {
 		model = gltf.scene;
 		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
+		// hide picture, add 3d model
+		// only on desktop (>= 900px screenWidth)
+		const isDesktop = document.documentElement.clientWidth >= 900;
+		if (!isDesktop) return;
+
+		imgToHideOnLoad.classList.add("hidden");
 		scene.add(model);
 
 		// spotlight props
 		spotLight = new THREE.SpotLight( 0xffffff );
 		spotLight.position.set( 0, 0, 10 );
-		spotLight.intensity = 300;
+		spotLight.intensity = 380;
+		spotLight.penumbra = 0.0;
 		spotLight.angle = Math.PI / 2;
 
 		spotLight.target = model;
@@ -44,15 +52,17 @@ loader.load(
 
 		spotLight.castShadow = true;
 		model.receiveShadow = true;
-
 		spotLight.shadow.mapSize.width = 1024;
 		spotLight.shadow.mapSize.height = 1024;
-
 		spotLight.shadow.camera.near = 20;
 		spotLight.shadow.camera.far = 1000;
 		spotLight.shadow.camera.fov = 60;
 
 		scene.add( spotLight );
+
+		// to make shadows less dark
+		const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+		scene.add(ambientLight);
 
 		handleResize();
 		renderer.render(scene, camera);
@@ -117,7 +127,7 @@ function animate() {
 
     model.lookAt( targetVector );
 
-	spotlightPosition = new THREE.Vector3(mouseXNormalized / 2, -mouseYNormalized / 1.5, -50);
+	spotlightPosition = new THREE.Vector3(mouseXNormalized / 2, -mouseYNormalized / 1.5, -80);
     spotlightPosition.sub(model.position).normalize().multiplyScalar(-10);
 	spotLight.position.x *= -1;
 

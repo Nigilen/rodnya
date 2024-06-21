@@ -8,7 +8,7 @@ function init() {
 
 	const scene = new THREE.Scene();
 	const canvas = document.querySelector('#canvas');
-	const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 1, 1000);
+	const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 1, 1000);
 	scene.add(camera);
 
 	const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
