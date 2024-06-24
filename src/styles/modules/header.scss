@@ -28,7 +28,7 @@
         }
     }
 
-    @include break-down($break-tablet) {
+    @include break-down($break-custom-tablet) {
         margin-bottom: rem(124);
     }
     

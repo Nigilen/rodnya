@@ -42,14 +42,11 @@
     }
 
     // big tablet - no model loads
-    @include break-down(1280) {
+    @include break-down($break-custom-tablet) {
         &__img {
             width: max(min(calc(34.5vw + 20vh), rem($max-img-width)), rem($min-img-width));
         }
-    }
 
-    // custom tablet
-    @include break-down($break-custom-desktop) {
         &__textBg {
             background: url('/text/text_tablet.svg');
             background-size: contain;
@@ -57,11 +54,11 @@
             background-position: center;
             transform-origin: center;
         }
+        margin-bottom: rem(130);
     }
 
     // mobile
     @include break-down($break-tablet) {
-        margin-bottom: rem(130);
         &__textBg {
             background: url('/text/text_mobile.svg');
             background-size: contain;
