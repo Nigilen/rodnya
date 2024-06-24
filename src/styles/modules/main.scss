@@ -69,10 +69,9 @@
         }
     }
 
-    // mobile
-    @include break-down($break-custom-mobile) {
+    @include break-down(450) {
         &__img {
-            width: max(min(calc(26.5vw + 22.5vh), rem($max-img-width)), rem($min-img-width));
+            width: max(min(calc(36.5vw + 22.5vh), rem($max-img-width)), rem($min-img-width));
         }
     }
 }
