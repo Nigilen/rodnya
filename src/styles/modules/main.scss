@@ -23,7 +23,6 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        transform-origin: center;
     }
 
     // model img while downloading
@@ -44,7 +43,7 @@
     // big tablet - no model loads
     @include break-down($break-custom-tablet) {
         &__img {
-            width: max(min(calc(34.5vw + 20vh), rem($max-img-width)), rem($min-img-width));
+            width: max(min(calc(37.5vw + 24.5vh), rem($max-img-width)), rem($min-img-width));
         }
 
         &__textBg {
@@ -52,25 +51,24 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            transform-origin: center;
         }
         margin-bottom: rem(130);
     }
 
-    // mobile
+    // tablet
     @include break-down($break-tablet) {
         &__textBg {
             background: url('/text/text_mobile.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            transform-origin: center;
         }
     }
 
-    @include break-down(500) {
-        &__textBg { 
-            transform: scaleY(1.2);
+    // mobile
+    @include break-down($break-custom-mobile) {
+        &__img {
+            width: max(min(calc(26.5vw + 22.5vh), rem($max-img-width)), rem($min-img-width));
         }
     }
 }
