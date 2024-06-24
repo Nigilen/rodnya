@@ -3,7 +3,7 @@
 
 
 .main {
-    $max-img-width: 800;
+    $max-img-width: 1000;
     $min-img-width: 255;
 
     @include flex_col(center, center);
@@ -29,7 +29,7 @@
     &__img {
         position: absolute;
         display: block;
-        width: max(min(calc(34.5vw + 20vh), rem($max-img-width)), rem($min-img-width));
+        width: clamp(rem($min-img-width), calc(30.5vw + 30vh), rem($max-img-width));
         height: auto;
         z-index: 100;
         object-fit: cover;
@@ -43,7 +43,7 @@
     // big tablet - no model loads
     @include break-down($break-custom-tablet) {
         &__img {
-            width: max(min(calc(40.5vw + 28.5vh), rem($max-img-width)), rem($min-img-width));
+            width: max(min(calc(25.5vw + 40vh), rem($max-img-width)), rem($min-img-width));
         }
 
         &__textBg {
@@ -57,10 +57,6 @@
 
     // tablet
     @include break-down($break-tablet) {
-        &__img {
-            width: max(min(calc(36.5vw + 28.5vh), rem($max-img-width)), rem($min-img-width));
-        }
-
         &__textBg {
             background: url('/text/text_mobile.svg');
             background-size: contain;
@@ -69,7 +65,7 @@
         }
     }
 
-    @include break-down(450) {
+    @include break-down(500) {
         &__img {
             width: max(min(calc(36.5vw + 22.5vh), rem($max-img-width)), rem($min-img-width));
         }
