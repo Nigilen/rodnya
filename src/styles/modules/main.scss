@@ -65,9 +65,10 @@
         }
     }
 
-    @include break-down(500) {
+    @include break-down(420) {
         &__img {
-            width: calc(30.5vw + 24.5vh);
+            width: max(min(calc(28.5vw + 30.5vh), rem($max-img-width)), rem($min-img-width));
+            min-height: rem(310);
         }
     }
 }
