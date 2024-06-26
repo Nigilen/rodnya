@@ -65,7 +65,7 @@
         }
     }
 
-    @include break-down(420) {
+    @include break-down(440) {
         &__img {
             width: max(min(calc(28.5vw + 30.5vh), rem($max-img-width)), rem($min-img-width));
             min-height: rem(310);
