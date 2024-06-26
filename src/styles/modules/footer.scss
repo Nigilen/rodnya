@@ -6,6 +6,10 @@
     color: $red;
     height: $footerHeightDesktop;
 
+    &__right {
+        text-align: right;
+    }
+
 
     // before-tablet
     @include break-down($break-tablet) {

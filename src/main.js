@@ -7,7 +7,7 @@ import './globals.scss';
 const { sizes, camera, scene, renderer } = init();
 
 const scaleBoundaries = {
-	max: 0.125,
+	max: 0.13,
 	min: 0.04,
 };
 

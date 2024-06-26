@@ -3,7 +3,7 @@
 
 
 .main {
-    $max-img-width: 1000;
+    $max-img-width: 2000;
     $min-img-width: 255;
 
     @include flex_col(center, center);
