@@ -21,8 +21,8 @@ let spotLight;
 
 // value to scale model on desktop
 const modelInitScalers = {
-	width: 0.07,
-	height: 0.037,
+	width: 0.075,
+	height: 0.038,
 };
 const initScreenSizes = {
 	width: 1440,
