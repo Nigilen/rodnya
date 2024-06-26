@@ -67,7 +67,7 @@
 
     @include break-down(500) {
         &__img {
-            width: max(min(calc(36.5vw + 22.5vh), rem($max-img-width)), rem($min-img-width));
+            width: calc(30.5vw + 24.5vh);
         }
     }
 }
