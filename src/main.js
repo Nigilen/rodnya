@@ -7,8 +7,8 @@ import './globals.scss';
 const { sizes, camera, scene, renderer } = init();
 
 const scaleBoundaries = {
-	max: 0.13,
-	min: 0.04,
+	max: 0.15,
+	min: 0.1,
 };
 
 const desktopBreakpoint = 1280;
@@ -20,7 +20,10 @@ const loader = new GLTFLoader();
 let spotLight;
 
 // value to scale model on desktop
-const modelInitScaler = 0.06;
+const modelInitScalers = {
+	width: 0.068,
+	height: 0.032,
+};
 const initScreenSizes = {
 	width: 1440,
 	height: 900,
@@ -32,7 +35,7 @@ loader.load(
 	pathToModel,
 	(gltf) => {
 		model = gltf.scene;
-		model.scale.set(modelInitScaler, modelInitScaler, modelInitScaler);
+
 		// hide picture, add 3d model
 		// only on desktop (>= 900px screenWidth)
 		const isDesktop = document.documentElement.clientWidth >= desktopBreakpoint;
@@ -97,7 +100,7 @@ function handleResize() {
 	camera.updateProjectionMatrix();
 
 	// обновляем модель
-	const modelScaler = findModelScaler(windowWidth);
+	const modelScaler = findModelScaler(windowWidth, windowHeight);
 	model.scale.set(modelScaler, modelScaler, modelScaler);
 
 	// Обновляем renderer
@@ -106,8 +109,8 @@ function handleResize() {
 	renderer.render(scene, camera);
 }
 
-function findModelScaler(currentWidth) {
-	let scaler = (modelInitScaler * currentWidth / initScreenSizes.width) + 0.05;
+function findModelScaler(currentWidth, currentHeight) {
+	let scaler = (modelInitScalers.width * currentWidth / initScreenSizes.width) + (modelInitScalers.height * currentHeight / initScreenSizes.height);
 	scaler = Math.min(scaler, scaleBoundaries.max);
 	scaler = Math.max(scaler, scaleBoundaries.min);
 	
