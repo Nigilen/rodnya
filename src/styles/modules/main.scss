@@ -29,7 +29,7 @@
     &__img {
         position: absolute;
         display: block;
-        width: clamp(rem($min-img-width), calc(30.5vw + 30vh), rem($max-img-width));
+        width: clamp(rem($min-img-width), calc(30.5vw + 40vh), rem($max-img-width));
         height: auto;
         z-index: 100;
         object-fit: cover;
@@ -40,10 +40,14 @@
         }
     }
 
-    // big tablet - no model loads
+    // tablet - no 3d model loaded
     @include break-down($break-custom-tablet) {
+        margin-bottom: rem(130);
+    }
+
+    @media (max-width: rem($break-custom-tablet)) and (orientation: portrait) {
         &__img {
-            width: max(min(calc(25.5vw + 40vh), rem($max-img-width)), rem($min-img-width));
+            width: clamp(rem($min-img-width), calc(28.5vw + 40vh), rem($max-img-width));    
         }
 
         &__textBg {
@@ -52,11 +56,55 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-        margin-bottom: rem(130);
     }
 
-    // tablet
-    @include break-down($break-tablet) {
+    @media (max-width: rem($break-custom-tablet)) and (min-height: 1000px) and (orientation: portrait) {
+        &__img {
+            width: clamp(rem($min-img-width), calc(27.5vw + 48vh), rem($max-img-width));    
+        }
+
+        &__textBg {
+            background: url('/text/text_tablet.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    @media (max-width: rem($break-custom-tablet)) and (max-height: 800) and (orientation: portrait) {
+        &__img {
+            width: clamp(rem($min-img-width), calc(27.5vw + 30vh), rem($max-img-width));    
+        }
+
+        &__textBg {
+            background: url('/text/text_tablet.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    @media (max-width: rem($break-custom-tablet)) and (max-height: 820px) and (orientation: landscape) {
+        &__img {
+            width: calc(25.5vw + 28vh);
+        }
+
+        &__textBg {
+            background: url('/text/text_desktop.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    // between table and mobile
+    @media (max-width: 650px) and (orientation: portrait) {
+        &__img {
+            width: clamp(rem($min-img-width), calc(28.5vw + 32vh), rem($max-img-width));    
+        }
+    }
+
+    @include break-down($break-custom-mobile) {
         &__textBg {
             background: url('/text/text_mobile.svg');
             background-size: contain;
@@ -67,8 +115,8 @@
 
     @include break-down(440) {
         &__img {
-            width: max(min(calc(28.5vw + 30.5vh), rem($max-img-width)), rem($min-img-width));
-            min-height: rem(310);
+            width: max(min(calc(28.5vw + 28.5vh), rem($max-img-width)), rem($min-img-width));
+            min-height: rem(325);
         }
     }
 }
