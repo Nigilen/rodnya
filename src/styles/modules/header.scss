@@ -27,10 +27,6 @@
             display: none;
         }
     }
-
-    @include break-down($break-custom-tablet) {
-        margin-bottom: rem(124);
-    }
     
     // mobile
     @include break-down($break-tablet - 50) {

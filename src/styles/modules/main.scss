@@ -41,10 +41,6 @@
     }
 
     // tablet - no 3d model loaded
-    @include break-down($break-custom-tablet) {
-        margin-bottom: rem(130);
-    }
-
     @media (max-width: rem($break-custom-tablet)) and (orientation: portrait) {
         &__img {
             width: clamp(rem($min-img-width), calc(28.5vw + 40vh), rem($max-img-width));    
