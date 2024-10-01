@@ -3,6 +3,7 @@
   --foreground: #171717;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -10,16 +11,50 @@
   }
 }
 
+
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./../app/fonts/Manrope-Regular.woff');
+  src: local('Manrope Regular'), local('Manrope-Regular'),
+      url('./../app/fonts/Manrope-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./../app/fonts/Manrope-Medium.woff');
+  src: local('Manrope Medium'), local('Manrope-Medium'),
+      url('./../app/fonts/Manrope-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope-variators';
+  src: url('./../app/fonts/Manrope-VariableFont_wght.woff') format('woff');
+  font-weight: 100 200 300 400 500 600 700;
+}
+
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +70,25 @@ a {
   text-decoration: none;
 }
 
+.container {
+  padding-inline: 56px;
+}
+
+@media (width < 1440px) {
+  .container {
+    padding-inline: 40px;
+  }
+}
+
+@media (width < 768px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+

@@ -1,0 +1,36 @@
+.case {
+  display: flex;
+  flex-direction: column;
+  row-gap: 70px;
+}
+
+.case_content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 70px;
+  padding-block: 56px 80px;
+}
+
+.case_header {
+  padding-block: 56px;
+}
+
+@media (width < 1440px) {
+  .case_header {
+    padding-block: 29px 35px;
+  }
+  .case_content {
+    row-gap: 54px;
+    padding-block: 81px 57px;
+  }
+}
+
+@media (width < 765px) {
+  .case_header {
+    padding-block: 54px 50px;
+  }
+  .case_content {
+    row-gap: 50px;
+    padding-block: 0px 100px;
+  }
+}

@@ -1,0 +1,36 @@
+.p_with_ul {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36.4px;
+}
+
+.list {
+  columns: 2;
+  column-fill: balance;
+  column-gap: 137px;
+  margin-left: 2.5rem;
+}
+
+.list li:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.list__item {
+  list-style: disc;
+}
+
+@media (width < 1440px) {
+  .list {
+    columns: 1;
+  }
+}
+@media (width < 768px) {
+  .p_with_ul {
+    gap: 25px;
+    font-size: 20px;
+    line-height: 29px;
+  }
+}

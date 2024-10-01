@@ -1,0 +1,28 @@
+.caption {
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.wrapper {
+  display: flex; 
+  flex-direction: column; 
+  gap: 63px;
+  padding-block: 56px;
+}
+
+@media (width < 1440px) {
+  .wrapper {
+    gap: 30px;
+    padding-block: 70px 38px;
+  }
+  .caption {
+    display: none;
+  }
+}
+@media (width < 768px) {
+  .wrapper {
+    gap: 40px;
+    padding-block: 54px 29px;
+  }
+
+}
