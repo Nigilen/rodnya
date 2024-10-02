@@ -1,10 +1,28 @@
 .accordion_item {
   list-style: none;
   padding-block-end: 65px;
+  
 }
 
 .accordion_item:not(:last-of-type) {
   border-block-end: 1px solid #000000;
+}
+
+.accordion_item_heading {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion_item__icon {
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: all .3s ease-in-out
+}
+
+.rotate {
+  transform: rotate(90deg);
 }
 
 .accordion_item__title {
@@ -13,14 +31,17 @@
   line-height: 38px;
   letter-spacing: -0.04em;
   padding-block: 35px 36px;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
 }
 
-.accordion_item__title:after {
-  content: '+';
-  display: block;
+.accordion_content {
+  overflow: hidden;
+  transition: max-height .4s ease-in-out;
+  max-height: 0;
+  height: max-content;
+}
+
+.show_content {
+  max-height: 1000px;
 }
 
 @media (width < 768px) {

@@ -13,6 +13,11 @@
   min-height: 100vh;
   color: #ffffff;
   background-color: #545658;
+  
+}
+
+.hero_video {
+  position: absolute;
 }
 
 .hero_content {
@@ -22,6 +27,7 @@
   width: 100%;
   grid-template-columns: auto 1fr;
   column-gap: 166px;
+  z-index: 1;
 }
 
 .hero_content__proportional {

@@ -99,7 +99,7 @@ const membersMock = [
 export default  function Page() {
   return (
     <>
-      <Hero title={"Наша миссия"} description="Создаем из новостей брендов и компаний информационные поводы: рассказываем о значимых для бизнеса событиях так, чтобы они имели значение для аудитории." background="./about-hero.png" />
+      <Hero title={"Наша миссия"} description="Создаем из новостей брендов и компаний информационные поводы: рассказываем о значимых для бизнеса событиях так, чтобы они имели значение для аудитории." background="" video="/about-hero-video.webm"/>
 
       <div className={cn(styles.wrapper, 'container')}>
         <CoupleColumns heading={"О нас"}>
