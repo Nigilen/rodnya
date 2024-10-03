@@ -30,7 +30,13 @@ export const Menu: FC<TMenuProps> = ({isOpen, handler}) => {
           </li>
         </ul>
         <CloseButton handler={handler} />
-        <footer className="nav_footer">Footer of Navigation</footer>
+        <footer className={styles.nav_footer}>
+          <div>
+            <Link href="/privacy" className={styles.nav_footer_privacy}>Политика конфиденциальности</Link>
+            <p className={styles.nav_footer_company}>ООО&nbsp;«Креативные&nbsp;ПИАР-решения»</p>
+          </div>
+          <p className={styles.nav_footer_copyright}>©2024</p>
+        </footer>
       </div>
     </>
   );

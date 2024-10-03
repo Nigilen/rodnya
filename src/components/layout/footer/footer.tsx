@@ -24,10 +24,6 @@ export const Footer: FC = ({}) => {
         </footer>
       : 
       <FooterMainPage />
-      // <div className={styles.footer__index}>
-      //   <p className={styles.footer__index_left}>Креатив, который становится новостью</p>
-      //   <p className={styles.footer__index_right}>RODNYA<br/>Creative PR Studio</p>
-      // </div>
       }
     </>
   )

@@ -6,10 +6,8 @@
 }
 
 .actions_heading {
-  font-size: 80px;
-  font-weight: 500;
-  line-height: 76px;
-  letter-spacing: -0.04em;
+  font: var(--h2-medium, normal 500 80px/0.95 var(--Manrope));
+  letter-spacing: var(--letter-spacing-small, -0.04em);
 }
 
 .actions_buttons {
@@ -21,25 +19,22 @@
 }
 
 .action_button {
+  font: var(--button-text, normal 500 40px/0.95 var(--Manrope));
   background-color: transparent;
   border: none;
-  letter-spacing: -0.06em;
-  font-family: inherit;
+  letter-spacing: var(--letter-spacing-large, -0.06em);
   padding-block: 38px;
   border-radius: 8px;
   text-wrap: nowrap;
   width: 100%;
   text-align: center;
   cursor: pointer;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 38px;
 }
 
 .modal {
   margin: auto;
   border: none;
-  background-color: #ffffff;
+  background-color: var(--main-color, #ffffff);
   flex-direction: column;
   gap: 20px;
   padding: 20px;
@@ -57,17 +52,17 @@
   position: fixed;
   inset: 0;
   background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(3px);
   z-index: 1;
 }
 
 .action_request {
-  background-color: #FF213C;
-  color: #ffffff;
+  background-color: var(--rose, #FF213C);
+  color: var(--main-color, #ffffff);
 }
 
 .action_brief {
-  border: 2px solid #000000;
+  border: 2px solid var(--primary-color, #000000);;
 }
 
 
@@ -78,24 +73,16 @@
   }
 }
 
-@media (width < 1024px) {
+@media (width <= 1024px) {
   .actions_buttons {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto);
   }
 }
 
-@media (width < 768px) {
+@media (width <= 768px) {
   .actions {
     padding: 54px 16px 22px;
     row-gap: 25px;
-  }
-  .actions_heading {
-    font-size: 50px;
-    line-height: 47.5px;
-  }
-  .action_button {
-    font-size: 24px;
-    line-height: 22.8px;
   }
 }

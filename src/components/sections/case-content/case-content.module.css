@@ -25,7 +25,7 @@
   }
 }
 
-@media (width < 765px) {
+@media (width <= 765px) {
   .case_header {
     padding-block: 54px 50px;
   }

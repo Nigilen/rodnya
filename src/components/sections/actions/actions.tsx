@@ -3,7 +3,7 @@
 import { FC, useState } from 'react';
 import styles from './actions.module.css';
 import { ContactsSection } from '../contacts/contacts';
-import { CloseButton } from '@/src/ui-kit/close-button/close-button';
+import cn from 'classnames';
 
 type TActionsProps = {
   heading?: string;
@@ -23,8 +23,8 @@ export const Actions: FC<TActionsProps> = ({ heading, contacts }) => {
       {heading && <h2 className={styles.actions_heading}>{heading}</h2>}
 
       <div className={styles.actions_buttons}>
-        <button className={`${styles.action_button} ${styles.action_request}`} type="button" onClick={handleToggle}>Оставить заявку</button>
-        <a className={`${styles.action_button} ${styles.action_brief}`} href="download-test.svg" download>Скачать форму брифа</a>
+        <button className={cn(styles.action_button, styles.action_request, 'button-primary')} type="button" onClick={handleToggle}>Оставить заявку</button>
+        <a className={cn(styles.action_button, styles.action_brief, 'button-secondary')} href="download-test.svg" download>Скачать форму брифа</a>
       </div>
       {contacts && <ContactsSection />}
       <dialog className={styles.modal} open={isOpen}>

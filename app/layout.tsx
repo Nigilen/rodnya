@@ -55,7 +55,7 @@ export default function RootLayout({
       <body className='page'>
         <Header />
         {children}
-        <Footer contacts />
+        <Footer />
       </body>
     </html>
   );

@@ -1,14 +1,38 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* fonts */
+  --Manrope: 'Manrope', Arial, Helvetica, sans-serif;
 
+  --letter-spacing-small: -0.04em;
+  --letter-spacing-large: -0.06em;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --h1-medium: normal 500 140px/0.95 var(--Manrope);
+  --h2-medium: normal 500 80px/0.95 var(--Manrope);
+  --h3-medium: normal 500 40px/0.95 var(--Manrope);
+
+  --body-regular: normal 400 28px/1.3 var(--Manrope);
+  --small-regular: normal 400 18px/1.3 var(--Manrope);
+
+  --button-text: normal 500 40px/0.95 var(--Manrope);
+  --link-text: normal 500 70px/0.95 var(--Manrope);
+  --awards-text: normal 700 28px/1.3 var(--Manrope);
+
+  /* colors */
+  --main-color: #ffffff;
+  --primary-color: #000000;
+  --grey: #B5B5B5;
+  --rose: #FF213C;
+  --bg: #f5f5f5;
+
+  --btn-disabled: #B5B5B5;
+
+  --btn-primary-hover-bg: #E11A32;
+  --btn-primary-disabled-bg: #E86070;
+  --btn-primary-disabled-text: #F5B7B7;
+
+  --btn-secondary-hover: #FF213C;
+
+  /* animations */
+  --btn-hover-easing: 0.25s ease-in-out;
 }
 
 
@@ -34,26 +58,26 @@
 @font-face {
   font-family: 'Manrope-variators';
   src: url('./../app/fonts/Manrope-VariableFont_wght.woff') format('woff');
-  font-weight: 100 200 300 400 500 600 700;
+  font-weight: 400 500 700;
 }
 
 
 html,
 body {
   max-width: 100vw;
+  min-width: 375px;
   overflow-x: hidden;
   height: 100%;
 }
 
 body {
-  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Manrope, Arial, Helvetica, sans-serif;
+  color: var(--primary-color, #000000);
+  background: var(--main-color, #ffffff);
+  font-family: var(--Manrope);
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -70,6 +94,48 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.button-primary {
+  background-color: var(--rose, #FF213C);
+  color: var(--main-color, #ffffff);
+  transition: var(--btn-hover-easing, 0.25s ease-in-out);
+}
+
+.button-primary:hover {
+  background-color: var(--btn-primary-hover-bg, #E11A32);
+}
+
+.button-primary:disabled {
+  background-color: var(--btn-primary-disabled-bg, #E86070);
+  color: var(--btn-primary-disabled-text, #F5B7B7);
+}
+
+
+.button-secondary {
+  border: 1px solid var(--primary-color, #000000);
+  transition: var(--btn-hover-easing, 0.25s ease-in-out);
+}
+
+.button-secondary:hover {
+  color: var(--btn-secondary-hover, #FF213C);
+  border-color: var(--btn-secondary-hover, #FF213C);
+}
+
+.button-link {
+  border: 1px solid transparent;
+  transition: var(--btn-hover-easing, 0.25s ease-in-out);
+}
+
+.button-link:hover {
+  border-bottom-color: var(--primary-color, #000000);
+  /* padding-block-end: 5px; */
+}
 
 .container {
   padding-inline: 56px;
@@ -79,17 +145,29 @@ a {
   .container {
     padding-inline: 40px;
   }
+  :root {
+    --h2-medium: normal 500 80px/1.1875 var(--Manrope);
+    --h3-medium: normal 500 40px/2.375 var(--Manrope);
+  
+    --link-text: normal 500 35px/0.95 var(--Manrope);
+  }
 }
 
-@media (width < 768px) {
+@media (width <= 768px) {
+  :root {
+    --h1-medium: normal 500 80px/0.95 var(--Manrope);
+    --h2-medium: normal 500 50px/0.95 var(--Manrope);
+    --h3-medium: normal 500 24px/1.2 var(--Manrope);
+  
+    --body-regular: normal 400 20px/1.45 var(--Manrope);
+    --small-regular: normal 400 15px/1.3 var(--Manrope);
+  
+    --button-text: normal 500 24px/0.95 var(--Manrope);
+    --link-text: normal 500 30px/0.95 var(--Manrope);
+    --awards-text: normal 700 19px/1.3 var(--Manrope);
+  }
+  
   .container {
     padding-inline: 16px;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-

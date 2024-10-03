@@ -13,7 +13,9 @@ export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
       <ul className={styles.works_list}>
         {works.map(work => 
           <li className={styles.work} key={work}>
-            {work}
+            <a className='button-link' href="#">
+              {work}
+            </a>
           </li>
         )}
       </ul>

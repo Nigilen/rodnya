@@ -36,7 +36,7 @@
 .nav_dot {
   width: 12px;
   aspect-ratio: 1 / 1;
-  background-color: #ffffff;
+  background-color: var(--main-color, #ffffff);;
   border: none;
   border-radius: 100%;
   cursor: pointer;
@@ -46,7 +46,7 @@
   width: 20px;
 }
 
-@media (width < 1400px) {
+@media (width <= 1400px) {
   .carousel__track {
     min-height: 610px;
   }
@@ -55,7 +55,7 @@
   }
 }
 
-@media (width < 768px) {
+@media (width <= 768px) {
   .hero_cases {
     min-height: 460px;
   }

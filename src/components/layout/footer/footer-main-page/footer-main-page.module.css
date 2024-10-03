@@ -15,7 +15,7 @@
   font-size: 26px;
   font-weight: 600;
   line-height: 32.5px;
-  color: #FF213C;
+  color: var(--rose, #FF213C);
 }
 
 .footer__index p {
@@ -25,18 +25,3 @@
 .footer__index_right {
   text-align: right;
 }
-
-@media (width < 1440px) {
-  .footer__index {
-    font-size: 18px;
-    line-height: 21.6px;
-  }
-}
-
-@media (width < 768px) {
-  .footer__index {
-    font-size: 14px;
-    line-height: 16.8px;
-  }
-}
-

@@ -17,16 +17,12 @@
 }
 
 .contacts_item__term {
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 36.4px;
+  font: var(--body-regular, normal 400 28px/1.3 var(--Manrope));
 }
 
 .contacts_item__definition {
-  font-size: 70px;
-  font-weight: 500;
-  line-height: 66.5px;
-  letter-spacing: -0.04em;
+  font: var(--link-text, normal 500 70px/0.95 var(--Manrope));
+  letter-spacing: var(--letter-spacing-small, -0.04em);
 }
 
 
@@ -38,16 +34,8 @@
   .contacts_list {
     row-gap: 50px;
   }
-  .contacts_item__term {
-    font-size: 28px;
-    line-height: 36.4px;
-  }
-  .contacts_item__definition {
-    font-size: 35px;
-    line-height: 33.25px;
-  }
 }
-@media (width < 768px) {
+@media (width <= 768px) {
   .contacts {
     padding-inline: 16px;
     padding-block: 40px 0;
@@ -60,17 +48,6 @@
   .contacts_list {
     row-gap: 30px
   }
-  
-  .contacts_item__term {
-    font-size: 20px;
-    line-height: 29px;
-  }
-  
-  .contacts_item__definition {
-    font-size: 30px;
-    line-height: 28.5px;
-  }
-  
   .page_title {
     padding-inline: clamp(1rem, -0.4313rem + 6.1069vw, 2.5rem);
   }

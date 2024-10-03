@@ -10,7 +10,7 @@
     padding: 70px 40px 38px;
   }
 }
-@media (width < 768px) {
+@media (width <= 768px) {
   .container {
     padding: 54px 16px 29px;
   }
