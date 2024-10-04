@@ -1,0 +1,28 @@
+include:
+  - project: 'fr/ci'
+    ref: main
+    file: 'ssh.ci.yml'
+
+stages:
+  - deploy-dev
+  - deploy-prod
+
+deploy-to-test-server:
+  stage: deploy-dev
+  extends: .install-ssh
+  variables:
+    SSH_PRIVATE_KEY: $TEST_SSH_PRIVATE_KEY
+    SERVER_KNOWN_HOSTS: $TEST_SSH_KNOWN_HOSTS
+  script:
+    - BUILD="npm install && npm run build && npm install --omit=dev"
+    - TEST_PATH="~/www/rodnya.friendlee.ru/front"
+    - RESTART="/usr/lib/ispnodejs/bin/pm2 reload rodnya.friendlee.ru"
+    - rsync -avz --progress --no-perms --no-owner --no-group --delete --exclude=".git/" --exclude="node_modules/" -e "ssh -p $TEST_PORT" . $TEST_USER@$TEST_HOST:$TEST_PATH
+    - ssh -p $TEST_PORT $TEST_USER@$TEST_HOST "cd $TEST_PATH && $BUILD && $RESTART"
+  only:
+    - dev
+  tags:
+    - shell
+  environment:
+    name: test
+    url: https://rodnya.friendlee.ru
