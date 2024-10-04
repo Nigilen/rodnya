@@ -3,7 +3,7 @@
 import { CasesPreview } from "@/src/components/blocks/cases-preview";
 import { Grid } from "@/src/components/layout/grid";
 import { Hero } from "@/src/components/sections/hero/hero";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 const casesMock = [
@@ -154,7 +154,7 @@ const casesMock = [
 ];
 
 export default function Page() {
-  const [scro, setScrollY] = useState(0);
+  // const [scro, setScrollY] = useState(0);
 
   return (
     <>

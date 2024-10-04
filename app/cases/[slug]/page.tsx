@@ -15,11 +15,7 @@ const slides = [
 ];
 
 
-export default function Page(
-	{ params }: { 
-		params: { slug: string } 
-	}
-) {
+export default function Page() {
   return (
     <div>
       <HeroCarousel heading={""} items={slides} />

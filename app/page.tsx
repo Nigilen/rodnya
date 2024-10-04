@@ -5,11 +5,18 @@ import styles from './page.module.css';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import Image from 'next/image';
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
+  const router = useRouter();
+
+  
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+
+  const handleMove = () => {
+    router.push('/cases');
+  }
 
   useLayoutEffect(()=>{
     const sizes = {
@@ -37,8 +44,8 @@ export default function Page() {
 
     const gltfLoader = new GLTFLoader();
 
-    let model;
-    let spotLight;
+    let model: THREE.Group<THREE.Object3DEventMap>;
+    let spotLight: THREE.SpotLight;
     
     const modelInitScalers = {
       width: 0.07,
@@ -127,7 +134,7 @@ export default function Page() {
       renderer.render(scene, camera);
     }
     
-    function findModelScaler(currentWidth, currentHeight) {
+    function findModelScaler(currentWidth: number, currentHeight: number) {
       let scaler = (modelInitScalers.width * currentWidth / initScreenSizes.width) + (modelInitScalers.height * currentHeight / initScreenSizes.height);
       scaler = Math.min(scaler, scaleBoundaries.max);
       scaler = Math.max(scaler, scaleBoundaries.min);
@@ -181,11 +188,11 @@ export default function Page() {
 
 
   return (
-    <div className={styles.main}>
-      <div className={styles.main_bg}>
+    <div className={styles.main} >
+      <canvas id='canvas' ref={canvasRef} />
+      <div className={styles.main_bg} onClick={handleMove}>
         <Image ref={imageRef} src="/clubok_img.webp" className="main__img" width={1440} height={900} alt={''} />
       </div>
-      <canvas id='canvas' ref={canvasRef} />
     </div>
   );
 }
