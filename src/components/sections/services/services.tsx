@@ -1,12 +1,11 @@
 'use client'
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './services.module.css';
 import { AccordionItem } from '../../shared/accordion/accordion-item/accordion-item';
 import { Accordion } from '../../shared/accordion';
 import { PWithUl } from '@/src/ui-kit/p-with-ul/p-with-ul';
 import cn from 'classnames';
-import { describe } from 'node:test';
 
 
 const servicesMock = [
@@ -38,13 +37,7 @@ const servicesMock = [
       ],
     }
   }
-]
-
-const some = {
-  title: 'asda',
-  describe: 'asd32'
-}
-
+];
 
 type TServicesProps = {
   header: string
