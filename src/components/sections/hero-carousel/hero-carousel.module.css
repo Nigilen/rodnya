@@ -1,0 +1,65 @@
+.hero_cases {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel__track {
+  display: flex;
+  min-height: 645px;
+  list-style: none;
+}
+
+.carousel__img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 80%;
+}
+
+.carousel__item {
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.carousel__nav {
+  position: absolute;
+  display: flex;
+  gap: 55px;
+  align-items: center;
+  inset-block-end: 56px; 
+  justify-content: center;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 56px;
+}
+
+.nav_dot {
+  width: 12px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--main-color, #ffffff);;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.nav_dot__current {
+  width: 20px;
+}
+
+@media (width <= 1400px) {
+  .carousel__track {
+    min-height: 610px;
+  }
+  .carousel__nav { 
+    inset-block-end: 40px;
+  }
+}
+
+@media (width <= 768px) {
+  .hero_cases {
+    min-height: 460px;
+  }
+  .carousel__nav {
+    inset-block-end: 32px;
+  }
+}

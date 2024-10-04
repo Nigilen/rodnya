@@ -1,0 +1,35 @@
+.footer {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-inline: clamp(1rem, 0.1197rem + 3.7559vw, 3.5rem);
+  padding-block: clamp(1.75rem, 1.1338rem + 2.6291vw, 3.5rem);
+}
+
+.footer__index {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--rose, #FF213C);
+}
+
+.footer__index p {
+  max-width: 300px;
+}
+
+.footer__index_right {
+  text-align: right;
+}
+
+
+@media (width <= 768px) {
+  .footer__index {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+}

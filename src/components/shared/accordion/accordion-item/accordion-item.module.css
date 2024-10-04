@@ -1,0 +1,49 @@
+.accordion_item {
+  list-style: none;
+  padding-block-end: 65px;
+  
+}
+
+.accordion_item:not(:last-of-type) {
+  border-block-end: 1px solid #000000;
+}
+
+.accordion_item_heading {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion_item__icon {
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: all .3s ease-in-out
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.accordion_item__title {
+  font: var(--h3-medium, normal 500 40px/0.95 var(--Manrope));
+  letter-spacing: var(--letter-spacing-small, -0.04em);
+  padding-block: 35px 36px;
+}
+
+.accordion_content {
+  overflow: hidden;
+  transition: max-height .4s ease-in-out;
+  max-height: 0;
+  height: max-content;
+}
+
+.show_content {
+  max-height: 1000px;
+}
+
+@media (width <= 768px) {
+  .accordion_item {
+    padding-block-end: 25px;
+  }
+}

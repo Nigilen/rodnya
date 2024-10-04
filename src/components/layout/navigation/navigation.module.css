@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_link {
+  inline-size: clamp(5.3125rem, 3.6427rem + 7.1247vw, 7.0625rem);
+  block-size: clamp(2.625rem, 1.7901rem + 3.5623vw, 3.5rem);
+}
