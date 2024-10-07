@@ -1,7 +1,6 @@
 'use client'
 
 import { FC } from "react";
-import Image from "next/image";
 import styles from "./hero-carousel.module.css";
 import cn from "classnames";
 
@@ -11,14 +10,10 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-type Item = {
-  link: string,
-  alt: string
-}
 
 type THeroCarouselP = {
   heading: string,
-  items: Item[]
+  items: string[]
 }
 
 export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items }) => {
@@ -47,9 +42,9 @@ export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items }) => {
           modules={[Autoplay, Pagination]}
           className={styles.carousel__track}
         >
-          {items.map((item, index) => (
-            <SwiperSlide className={styles.carousel__item} key={index}>
-              <Image className={styles.carousel__img} src={item.link} width={1440} height={645} alt={item.alt} />
+          {items.map((item, i) => (
+            <SwiperSlide className={styles.carousel__item} key={i}>
+              <img className={styles.carousel__img} src={item} width={1440} height={645} />
             </SwiperSlide>
           ))}
           <div className={cn(styles.carousel__nav, 'swiper-pagination')}></div>

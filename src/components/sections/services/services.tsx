@@ -4,54 +4,59 @@ import { FC } from 'react';
 import styles from './services.module.css';
 import { AccordionItem } from '../../shared/accordion/accordion-item/accordion-item';
 import { Accordion } from '../../shared/accordion';
-import { PWithUl } from '@/src/ui-kit/p-with-ul/p-with-ul';
 import cn from 'classnames';
+import { Paragraph } from '@/src/ui-kit/paragraph/paragraph';
+import { ServicesList } from '@/src/ui-kit/services-list/services-list';
 
 
-const servicesMock = [
-  {
-    title: 'PR-проекты и ритейнеры: стратегии, реализация',
-    content: {
-      text: 'Мы верим в формулу do+say, поэтому в разработке идей и механик особое внимание уделяем аналитике и коммуникационной стратегии',
-      list: [
-        'Анализ присутствия в информационном поле бренда и конкурентов',
-        'Разработка стратегии регулярного присутствия,  постановка долгосрочных целей',
-        'Реализация day-to-day работы с медиа (СМИ, ТГ-каналы)',
-        'Антикризисные коммуникации',
-        'Анализ присутствия в информационном поле бренда и конкурентов',
-        'Разработка стратегии регулярного присутствия,  постановка долгосрочных целей',
-        'Реализация day-to-day работы с медиа (СМИ, ТГ-каналы)',
-        'Антикризисные коммуникации',
-      ],
-    }
-  },
-  {
-    title: 'PR-проекты и ритейнеры: стратегии, реализация',
-    content: {
-      text: 'Мы верим в формулу do+say, поэтому в разработке идей и механик особое внимание уделяем аналитике и коммуникационной стратегии',
-      list: [
-        'Анализ присутствия в информационном поле бренда и конкурентов',
-        'Разработка стратегии регулярного присутствия,  постановка долгосрочных целей',
-        'Реализация day-to-day работы с медиа (СМИ, ТГ-каналы)',
-        'Антикризисные коммуникации',
-      ],
-    }
-  }
-];
+export type TList = {
+  item: string
+}
+
+export type TValue = string | TList[]
+
+type TContent = {
+  type: string,
+  value: TValue
+}
+    
+type TService = {
+  id: string,
+  title: string,
+  content: TContent[]
+}
 
 type TServicesProps = {
-  header: string
+  header: string;
+  data: TService[];
 };
 
-export const Services: FC<TServicesProps> = ({header}) => {
+
+// NOTE типы: typeguard
+
+
+export const Services: FC<TServicesProps> = ({header, data}) => {
 
   return (
     <div className={cn(styles.services, styles.wrapper, 'container')}>
       <h2 className={styles.services_heading}>{header}</h2>
       <Accordion>
-        {servicesMock.map((service, index) => (
-          <AccordionItem key={index} title={service.title}>
-            <PWithUl text={service.content.text} list={service.content.list} />
+        {data.map((service: TService) => (
+          <AccordionItem key={service.id} title={service.title}>
+            <div className={styles.service_content}>
+              {service.content.map((item, i: number) => {
+                if (Array.isArray(item.value)) {
+                  return <ServicesList list={item.value} key={i}/>
+                }
+                if (typeof item.value === 'string') {
+                  return <Paragraph text={item.value} key={i}/>
+                }
+              }
+                // item.type === 'list' ? 
+                // <ServicesList list={item.value} key={i}/> :
+                // <Paragraph text={item.value} key={i}/>
+              )}
+            </div>
           </AccordionItem>
         ))}
       </Accordion>

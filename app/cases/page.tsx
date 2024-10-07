@@ -1,171 +1,19 @@
-'use client'
-
-import { CasesPreview } from "@/src/components/blocks/cases-preview";
+import { getProjects } from "@/src/api/api";
 import { Grid } from "@/src/components/layout/grid";
 import { Hero } from "@/src/components/sections/hero/hero";
-// import { useState } from "react";
 
+// TODO функционал: подгрузка при скролле «Кейсы»
 
-const casesMock = [
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-  {
-    alias: "yandexGo",
-    title: "Семейная сокотерапия",
-    company: "Мултон",
-    img: "/case-preview.png",
-  },
-];
+// NOTE cролл-подгрузка: React intersection observer 
 
-export default function Page() {
-  // const [scro, setScrollY] = useState(0);
-
+export default async function Page() {
+  const cases = await getProjects(); 
+  
   return (
     <>
-      <div className="sol"></div>
       <Hero title="Кейсы" description="Мы наверняка знаем, что источником информационного повода может стать всё, что угодно: наружная реклама, чат-бот, мероприятие, контент у блогера, подкаст." />
       <div>
-        <Grid>
-          {casesMock.map((item) => (
-            <CasesPreview key={item.alias} alias={'/cases/' + item.alias} company={item.company} title={item.title} img={item.img} />
-          ))}
-        </Grid>
+        <Grid cases={cases.data} />
       </div>
     </>
   );

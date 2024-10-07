@@ -6,11 +6,11 @@ import { Services } from "@/src/components/sections/services/services";
 import { Team } from "@/src/components/sections/team/team";
 import { Award } from "@/src/ui-kit/award/award";
 import { Paragraph } from "@/src/ui-kit/paragraph/paragraph";
-import styles from "../../src/styles/about.module.css";
+import styles from "./about.module.css";
 import cn from "classnames";
+import { getServices, getTeam } from "@/src/api/api";
 
-
-const awards = [
+const awardsMock = [
   {
     title: "Сannes Liones",
     counter: 3
@@ -43,60 +43,20 @@ const awards = [
     title: "Red Apple",
     counter: 1
   }, 
-]
+];
 
-const membersMock = [
-  {
-    id: '1',
-    name: "Вера Сивачева",
-    position: "CEO",
-    image: "/member.webp"
-  },
-  {
-    id: '2',
-    name: "Женя Пешков",
-    position: "CFO",
-    image: "/member.webp"
-  },
-  {
-    id: '3',
-    name: "Настя Афанасьева",
-    position: "Communications Director",
-    image: "/member.webp"
-  },
-  {
-    id: '4',
-    name: "Саша Штефане",
-    position: "Creative Director",
-    image: "/member.webp"
-  },
-  {
-    id: '5',
-    name: "Вера Сивачева",
-    position: "CEO",
-    image: "/member.webp"
-  },
-  {
-    id: '6',
-    name: "Женя Пешков",
-    position: "CFO",
-    image: "/member.webp"
-  },
-  {
-    id: '7',
-    name: "Настя Афанасьева",
-    position: "Communications Director",
-    image: "/member.webp"
-  },
-  {
-    id: '8',
-    name: "Саша Штефане",
-    position: "Creative Director",
-    image: "/member.webp"
+export default async function Page() {
+  let services = null;
+  let team = null;
+
+  try {
+    services = await getServices();
+    team = await getTeam();
+    console.log(services);
+  } catch (error) {
+    console.error(error);
   }
-]
 
-export default  function Page() {
   return (
     <>
       <Hero title={"Наша миссия"} description="Создаем из новостей брендов и компаний информационные поводы: рассказываем о значимых для бизнеса событиях так, чтобы они имели значение для аудитории." background="" video="/about-hero-video.webm"/>
@@ -107,14 +67,14 @@ export default  function Page() {
         </CoupleColumns>
         <List>
           {
-            awards.map(({ title, counter }) => <Award key={title} text={title} counter={counter} />)  
+            awardsMock.map(({ title, counter }) => <Award key={title} text={title} counter={counter} />)  
           }
         </List>
         <p className={styles.caption}>Состоим в ассоциациях АКОС и АБА</p>
       </div>
-      <Services header={"Услуги"} />
+      <Services header={"Услуги"} data={services.data} />
 
-      <Team name={"Команда"} members={membersMock} />
+      <Team name={"Команда"} members={team.data} />
       <Actions heading="Как с нами связаться?" contacts />
     </>
   );

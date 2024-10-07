@@ -21,10 +21,7 @@ export const Hero: FC<HeroProps> = ({title, description, background, video}) => 
       </video>
       <div className={cn(styles.hero_content, background && [styles.hero_content__proportional] || video && [styles.hero_content__proportional])}>
         <h1 className={styles.hero_title}>{ title }</h1>
-        { description ? 
-          <p className={styles.hero_description}>{description}</p> 
-          : null 
-        }
+        { description && <p className={styles.hero_description}>{description}</p> }
       </div>
     </section>
   )

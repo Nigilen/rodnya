@@ -1,10 +1,9 @@
-import styles from './contacts-section.module.css';
+import styles from './contacts-footer.module.css';
 import cn from 'classnames';
 
-export const ContactsSection = () => {
+export const ContactsFooter = () => {
   return (
     <section className={styles.contacts_section}>
-      {/* <h2>Контакты</h2> скрыть доступно потом */} 
       <address className={styles.contacts_address}>
         <dl className={styles.contacts_list}>
           <div className={cn(styles.column, styles.column__contacts)}>

@@ -1,10 +1,15 @@
-import { TAward } from "@/src/ui-kit/award/award";
 import { FC } from "react";
 import styles from "./case-about.module.css";
 
 type TCaseAbout = {
-  works: string[];
-  awards: TAward[];
+  works: {
+    title: string;
+    link: string;
+  }[],
+  awards: {
+    name: string,
+    number: number;
+  }[]
 }
 
 export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
@@ -12,9 +17,9 @@ export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
     <div className={styles.case_info}>
       <ul className={styles.works_list}>
         {works.map(work => 
-          <li className={styles.work} key={work}>
-            <a className='button-link' href="#">
-              {work}
+          <li className={styles.work} key={work.title}>
+            <a className='button-link' href={work.link} target="blank">
+              {work.title}
             </a>
           </li>
         )}
@@ -22,11 +27,11 @@ export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
       <h3 className={styles.awards_list_heading}>Награды:</h3>
       <ul className={styles.awards_list}>
         {awards.map(award => 
-          <li className={styles.award} key={award.text}>
+          <li className={styles.award} key={award.name}>
             <p className={styles.award__text}>
-              {award.text}
+              {award.name}
               <span className={styles.award__counter}>
-                ({award.counter})
+                ({award.number})
               </span>
             </p>
           </li>

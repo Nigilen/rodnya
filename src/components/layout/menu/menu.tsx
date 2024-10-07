@@ -2,7 +2,8 @@ import Link from "next/link";
 import { FC } from "react";
 import cn from "classnames";
 import styles from "./menu.module.css";
-import { CloseButton } from "@/src/ui-kit/close-button/close-button";
+import { NAV_LINKS } from "@/src/utils/constants";
+import { CloseIcon } from "../../svg/close-icon/close-icon";
 
 type TMenuProps = {
   isOpen: boolean;
@@ -16,20 +17,15 @@ export const Menu: FC<TMenuProps> = ({isOpen, handler}) => {
         <div className={styles.nav_overlay}></div></div>}
       <div className={cn(styles.menu, { [styles.menu__open]: isOpen })}>
         <ul className={styles.menu__list}>
-          <li className="nav-item">
-            <Link className="nav-item-link" href="/" onClick={handler}>Главная</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item-link" href="/about" onClick={handler}>О нас</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item-link" href="/cases" onClick={handler}>Кейсы</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item-link" href="/contacts" onClick={handler}>Контакты</Link>
-          </li>
+          {NAV_LINKS.map((link) => (
+            <li className={styles.nav_item} key={link.id}>
+              <Link className={styles.nav_item_link} href={link.route} onClick={handler}>{link.title}</Link>
+            </li>
+          ))}
         </ul>
-        <CloseButton handler={handler} />
+        <button className={styles.close_button} onClick={handler}>
+          <CloseIcon />
+        </button>
         <footer className={styles.nav_footer}>
           <div>
             <Link href="/privacy" className={styles.nav_footer_privacy}>Политика конфиденциальности</Link>

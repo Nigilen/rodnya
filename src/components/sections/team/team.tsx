@@ -2,7 +2,6 @@
 
 import { FC } from 'react';
 import styles from './team.module.css';
-import Image from 'next/image';
 import cn from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,7 +18,7 @@ type TTeamProps = {
     id: string,
     name: string, 
     position: string,
-    image: string
+    photo: string
   }[];
 };
 
@@ -62,7 +61,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           {members.map((member) => (
             <SwiperSlide className={styles.member} key={member.id}>
               <picture className={styles.member__img_wrapper}>
-                <Image className={styles.member__img} src={member.image} alt={member.name} width={395} height={284}/>
+                <img className={styles.member__img} src={member.photo} alt={member.name} width={395} height={284}/>
               </picture>
               <h3 className={styles.member__position} >{member.position}</h3>
               <p className={styles.member__name} >{member.name}</p>
