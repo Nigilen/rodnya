@@ -6,7 +6,7 @@
 
 .main_bg {
   background-image: url('/index-bg.svg');
-  width: 100vw;
+  width: auto;
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
