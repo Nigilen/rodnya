@@ -1,9 +1,10 @@
 'use client'
-import { FC } from "react";
+import { FC, useState } from "react";
 import { CasesPreview } from "../../blocks/cases-preview";
 // import { useInView } from "react-intersection-observer";
 import styles from "./grid.module.css";
 import cn from 'classnames';
+import { useInView } from "react-intersection-observer";
 
 type Case ={
   slug: string,
@@ -32,25 +33,33 @@ type Cases = {
 }
 
 export const Grid: FC<Cases> = ({cases}) => {
-  // const { ref } = useInView({
-  //   onChange(inView, enter) {
-  //     inView && cases.data.slice(0, 2).map((item: Case) => (
-  //       console.log(item.slug)
-  //     ));
-  //   }
-  // });
+  const [state, setState] = useState(0);
+  const [count, setCount] = useState(1);
 
-  // let pages = Math.ceil(cases.length / 2);
-  // let twoCase = cases.slice(0, 2);
+  const addCases = (i: number) => {
+    setState(i)
+    setCount(count + 1)
+  }
+
+  const { ref } = useInView({
+    threshold: 1,
+    onChange(inView) {
+      if (inView) {
+        addCases(2 * count)
+      }
+    }
+  });
+
+  const twoCase = cases.slice(0, state + 2);
   
   return (
     <>
       <ul className={cn(styles.grid, styles.wrapper, 'container')}>
-        {cases.map((item: Case) => (
+        {twoCase.map((item: Case) => (
           <CasesPreview key={item.slug} alias={'/cases/' + item.slug} company={item.client} title={item.title} img={item.slider[0]} />
         ))}
       </ul>
-      {/* <li ref={ref}>observer...</li> */}
+      <div className={styles.load_triger} ref={ref}></div>
     </>
   );
 }
