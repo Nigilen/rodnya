@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styles from "./paragraph.module.css";
+import { HTMLBlock } from "@/src/utils/html-block";
 
 type TParagraphP = {
   text: string
@@ -8,7 +9,7 @@ type TParagraphP = {
 export const Paragraph: FC<TParagraphP> = ({text}) => {
   return (
     <p className={styles.paragraph}>
-      {text}
+      <HTMLBlock rawHtml={text} />
     </p>
   );
 }

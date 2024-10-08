@@ -6,6 +6,7 @@ import { Summaries } from "../../blocks/summaries/summaries";
 import { NextCaseLink } from "./next-case-link/next-case-link";
 import cn from 'classnames';
 import { FC } from "react";
+import { HTMLBlock } from "@/src/utils/html-block";
 
 type Data = {
   data: {
@@ -56,10 +57,10 @@ export const CaseContent: FC<Data> = ({data}) => {
         </header>
         <section className={cn(styles.case_content, 'container')}>
           <CoupleColumns heading='Задача и&nbsp;контекст' border>
-            {data.task}
+            <HTMLBlock rawHtml={data.task} />
           </CoupleColumns>   
           <CoupleColumns heading={"Решение"} border>
-            {data.decision}
+            <HTMLBlock rawHtml={data.decision} />
           </CoupleColumns>
           <CoupleColumns heading={"Результаты"} border>
             <Summaries>

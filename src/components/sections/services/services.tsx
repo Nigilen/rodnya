@@ -51,11 +51,7 @@ export const Services: FC<TServicesProps> = ({header, data}) => {
                 if (typeof item.value === 'string') {
                   return <Paragraph text={item.value} key={i}/>
                 }
-              }
-                // item.type === 'list' ? 
-                // <ServicesList list={item.value} key={i}/> :
-                // <Paragraph text={item.value} key={i}/>
-              )}
+              })}
             </div>
           </AccordionItem>
         ))}
