@@ -3,22 +3,6 @@ import styles from './contacts.module.css';
 import { Actions } from '@/src/components/sections/actions/actions';
 import { getContacts, getSocials } from '@/src/api/api';
 
-
-// type Contacts = {
-//   data: {
-//     photo: string,
-//     description: string,
-//     address_name: string,
-//     address_url: string,
-//     phone: string,
-//     email_general: string,
-//     email_hr: string,
-//     brief: string | null,
-//     policy: string | null,
-//     request: string
-//   }
-// }
-
 type Socials = {
   data: {
     id: number,
@@ -27,7 +11,6 @@ type Socials = {
     show_in_footer: boolean
   }[]
 }
-
 
 export default async function Page() {
   let contacts;

@@ -1,4 +1,4 @@
-import { getSingleProject } from "@/src/api/api";
+import { getContacts, getSingleProject, getSocials } from "@/src/api/api";
 import { Actions } from "@/src/components/sections/actions/actions";
 import { CaseContent } from "@/src/components/sections/case-content/case-content";
 import { HeroCarousel } from "@/src/components/sections/hero-carousel/hero-carousel";
@@ -11,10 +11,13 @@ export default async function Page(
 ) {
 
   let caseDate; 
+  let contacts;
+  let socials;
 
   try {
     caseDate = await getSingleProject(params.slug).then(data => data.data);
-    console.log(caseDate);
+    contacts = await getContacts();
+    socials = await getSocials();
   } catch (e) {
     console.error(e);
   }
@@ -23,7 +26,7 @@ export default async function Page(
     <div>
       <HeroCarousel heading={""} items={caseDate.slider} />
       <CaseContent data={caseDate} />
-      <Actions heading="Как с нами связаться?" contacts />
+      <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
     </div>
   )
 }

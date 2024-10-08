@@ -8,7 +8,7 @@ import { Award } from "@/src/ui-kit/award/award";
 import { Paragraph } from "@/src/ui-kit/paragraph/paragraph";
 import styles from "./about.module.css";
 import cn from "classnames";
-import { getServices, getTeam } from "@/src/api/api";
+import { getContacts, getServices, getSocials, getTeam } from "@/src/api/api";
 
 const awardsMock = [
   {
@@ -48,11 +48,14 @@ const awardsMock = [
 export default async function Page() {
   let services = null;
   let team = null;
+  let contacts = null;
+  let socials = null;
 
   try {
     services = await getServices();
     team = await getTeam();
-    console.log(services);
+    contacts = await getContacts();
+    socials = await getSocials();
   } catch (error) {
     console.error(error);
   }
@@ -75,7 +78,7 @@ export default async function Page() {
       <Services header={"Услуги"} data={services.data} />
 
       <Team name={"Команда"} members={team.data} />
-      <Actions heading="Как с нами связаться?" contacts />
+      <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
     </>
   );
 }
