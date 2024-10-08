@@ -31,10 +31,6 @@ type TServicesProps = {
   data: TService[];
 };
 
-
-// NOTE типы: typeguard
-
-
 export const Services: FC<TServicesProps> = ({header, data}) => {
 
   return (
