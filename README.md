@@ -6,4 +6,8 @@ https://rodnya.friendlee.ru/
 
 ## Инициализация и запуск проекта
 npm i
+
 npm run dev
+
+## Бэк репозиторий
+https://git.friendlee.pro/fr/rodnya-back
