@@ -2,14 +2,20 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { FC, useLayoutEffect, useRef } from "react";
+import { FC, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from 'next/navigation';
 import styles from './tangle.module.css';
 import Image from 'next/image';
 import cn from 'classnames';
-// import Loading from '@/app/sloading';
+import Loading from '../loading/loading';
+
 
 export const Tangle: FC = () => {
+  const [preload, setPreload] = useState(true);
+
+  useLayoutEffect(() => {
+    setTimeout(() => setPreload(false), 4000);
+  }, []);
 
   const router = useRouter();
 
@@ -197,7 +203,7 @@ export const Tangle: FC = () => {
       <div className={styles.main_bg} onClick={handleMove}>
         <Image ref={imageRef} src="/clubok_img.webp" className="main__img link-cursor" width={1440} height={900} alt={''} />
       </div>
-      {/* <Loading /> */}
+      {preload && <Loading />}
     </div>
   );
 };

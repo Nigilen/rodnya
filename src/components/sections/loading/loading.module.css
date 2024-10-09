@@ -37,26 +37,26 @@
 .loading_description span {
   display: inline-flex;
   translate: 0 110%;
-  animation-name: loading;
-  animation-duration: 2s;
+  animation-name: loadingUp, loadingDown;
+  animation-duration: .1s, .1s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-timing-function: ease-in-out;
 }
 
 .loading_description .first_line span:first-child {
-  animation-delay: 0.5s;
+  animation-delay: .25s, 3s;
 }
 .loading_description .first_line span:last-child {
-  animation-delay: 1s;
+  animation-delay: .50s, 3.25s;
 }
 .loading_description .second_line span{
-  animation-delay: 1.5s;
+  animation-delay: .75s, 3.50s;
 }
 .loading_description .third_line span {
-  animation-delay: 2s;
+  animation-delay: 1s, 3.75s;
 }
 
-@keyframes loading {
+@keyframes loadingUp {
   0% {
     translate: 0 110%;
   }
@@ -65,16 +65,25 @@
   }
 }
 
+@keyframes loadingDown {
+  0% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 110%;
+  }
+}
+
+
+
 
 .loading_description div:last-child {
   display: flex;
   justify-content: flex-end;
 }
 
-
-
 .loading_progress {
-  
+  display: flex;
   position: absolute;
   left: 50px;
   bottom: 20px;
@@ -82,7 +91,8 @@
   font-weight: 500;
   line-height: 38px;
   letter-spacing: -0.04em;
-  display: flex;
+  height: 40px;
+  overflow: hidden;
 }
 
 .count_column {
@@ -90,6 +100,49 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
+.count_column:first-of-type {
+  transform: translateY(0);
+  animation-name: count;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.count_column:last-of-type {
+  transform: translateY(0);
+  animation-name: count;
+  animation-delay: .1s;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes count {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-95%);
+  }
+  45% {
+    transform: translateY(-95%);
+  }
+  50% {
+    transform: translateY(-190%);
+  }
+  70% {
+    transform: translateY(-190%);
+  }
+  75% {
+    transform: translateY(-285%);
+  }
+  100% {
+    transform: translateY(-285%);
+  }
+} 
 
 
 
@@ -111,6 +164,8 @@
   .loading_progress {
     font-size: 40px;
     line-height: 95px;
+    left: 35px;
+    height: 100px;
   }
 }
 
@@ -130,5 +185,7 @@
   .loading_progress {
     font-size: 22px;
     line-height: 26.4px;
+    left: 7px;
+    height: 28px;
   }
 }

@@ -18,6 +18,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <AnimatedCursor 
+          showSystemCursor={true}
           innerSize={24}
           outerSize={0}
           color='181, 181, 181'
