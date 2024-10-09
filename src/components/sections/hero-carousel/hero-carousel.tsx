@@ -17,8 +17,6 @@ type THeroCarouselP = {
 }
 
 export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items }) => {
-
-
   return (
     <section className={styles.hero_cases}>
       <h1>{heading}</h1>

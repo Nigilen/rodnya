@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import styles from './accordion.module.css';
 
 type TAccordionProps = {
   children: React.ReactNode;
@@ -7,7 +6,7 @@ type TAccordionProps = {
 
 export const Accordion: FC<TAccordionProps> = ({children}) => {
   return (
-    <ul className={styles.accordion}>
+    <ul>
       {children}
     </ul>
   );

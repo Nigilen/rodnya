@@ -25,7 +25,6 @@ export default async function Page() {
 
   return (
     <>
-
       <Hero title="Контакты" background={contacts.data.photo} />
       <address className={styles.contacts}>
         <dl className={styles.contacts_list}>
@@ -66,7 +65,6 @@ export default async function Page() {
         </dl>
       </address>
       <Actions brief={contacts.data.brief} request={contacts.data.request} />
-
     </>
   );
 }

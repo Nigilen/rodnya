@@ -3,7 +3,6 @@ import { Actions } from "@/src/components/sections/actions/actions";
 import { CaseContent } from "@/src/components/sections/case-content/case-content";
 import { HeroCarousel } from "@/src/components/sections/hero-carousel/hero-carousel";
 
-
 export default async function Page(
 	{ params }: { 
 		params: { slug: string } 

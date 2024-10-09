@@ -7,9 +7,6 @@ type TServicesListProps = {
   list: TList[]
 };
 
-// typeguard
-
-
 export const ServicesList: FC<TServicesListProps> = ({list}) => {
   return (
     <ul className={styles.list}>

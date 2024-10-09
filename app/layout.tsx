@@ -2,7 +2,7 @@
 import "./globals.css";
 import { Footer } from "@/src/components/layout/footer/footer";
 import { Header } from "@/src/components/layout/header/header";
-import styles from "./page.module.css";
+import styles from "./layout.module.css";
 import AnimatedCursor from "react-animated-cursor";
 
 

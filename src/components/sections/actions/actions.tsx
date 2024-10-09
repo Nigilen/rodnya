@@ -5,8 +5,6 @@ import styles from './actions.module.css';
 import { ContactsFooter } from '../../layout/footer/contacts/contacts';
 import cn from 'classnames';
 
-
-
 type Contacts = {
     photo: string,
     description: string,
