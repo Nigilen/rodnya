@@ -19,6 +19,7 @@
   animation-name: clubok_animation;
 }
 
+
 @keyframes clubok_animation {
   0% {
     transform: scale(1);

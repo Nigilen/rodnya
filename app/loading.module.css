@@ -1,0 +1,134 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--rose, #FF213C);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: var(--main-color, #ffffff);
+  padding: 20px 50px 20px;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.loading_title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  margin-block-end: 170px;
+}
+
+.loading_description {
+  font-size: 124px;
+  font-weight: 800;
+  line-height: 124px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.loading_description div {
+  overflow-y: hidden;
+}
+
+.loading_description span {
+  display: inline-flex;
+  translate: 0 110%;
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.loading_description .first_line span:first-child {
+  animation-delay: 0.5s;
+}
+.loading_description .first_line span:last-child {
+  animation-delay: 1s;
+}
+.loading_description .second_line span{
+  animation-delay: 1.5s;
+}
+.loading_description .third_line span {
+  animation-delay: 2s;
+}
+
+@keyframes loading {
+  0% {
+    translate: 0 110%;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+
+.loading_description div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+.loading_progress {
+  
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  display: flex;
+}
+
+.count_column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+
+
+
+@media (width < 1400px) {
+  .loading {
+    padding-inline: 35px;
+  }
+  .loading_title {
+    font-size: 40px;
+    line-height: 95px;
+    margin-block-end: 165px;
+  }
+  .loading_description {
+    font-size: 76px;
+    line-height: 76px;
+  }
+  .loading_progress {
+    font-size: 40px;
+    line-height: 95px;
+  }
+}
+
+@media (width <= 768px) {
+  .loading {
+    padding-inline: 7px;
+  }
+  .loading_title {
+    font-size: 22px;
+    line-height: 26.4px;
+    margin-block-end: 130px;
+  }
+  .loading_description {
+    font-size: 38px;
+    line-height: 38px;
+  }
+  .loading_progress {
+    font-size: 22px;
+    line-height: 26.4px;
+  }
+}

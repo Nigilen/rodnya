@@ -65,6 +65,7 @@ export default async function Page() {
         </dl>
       </address>
       <Actions brief={contacts.data.brief} request={contacts.data.request} />
+
     </>
   );
 }
