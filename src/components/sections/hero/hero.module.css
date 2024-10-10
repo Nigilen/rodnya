@@ -28,10 +28,10 @@
   align-items: flex-end;
   padding: 216px 56px 56px;
   width: 100%;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
   column-gap: 166px;
   z-index: 1;
-  
 }
 
 .hero_content__proportional {
