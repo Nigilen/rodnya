@@ -12,7 +12,7 @@
 .carousel__img {
   width: 100%;
   object-fit: cover;
-  object-position: 80%;
+  object-position: top;
 }
 
 .carousel__item {
