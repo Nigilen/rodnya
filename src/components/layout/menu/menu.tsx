@@ -17,9 +17,11 @@ export const Menu: FC<TMenuProps> = ({isOpen, handler}) => {
         <div className={styles.nav_overlay}></div></div>}
       <div className={cn(styles.menu, { [styles.menu__open]: isOpen })}>
         <ul className={styles.menu__list}>
-          {NAV_LINKS.map((link) => (
-            <li className={styles.nav_item} key={link.id}>
-              <Link className={styles.nav_item_link} href={link.route} onClick={handler}>{link.title}</Link>
+          {NAV_LINKS.map((link, i) => (
+            <li className={styles.nav_item} key={link.id} data-lol={i}>
+              <Link 
+                style={{ transitionDelay: `${i*0.1}s` }}
+                className={styles.nav_item_link} href={link.route} onClick={handler}>{link.title}</Link>
             </li>
           ))}
         </ul>

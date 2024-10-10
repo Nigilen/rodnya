@@ -88,6 +88,19 @@
   cursor: pointer;
 }
 
+@media (width <= 2560px) {
+  .menu__list {
+    row-gap: clamp(6.035rem, 1.0344rem + 4.1672vw, 7.701875rem);
+  }
+}
+
+
+@media (width <= 1920px) {
+  .menu__list {
+    row-gap: clamp(2.285rem, -8.965rem + 12.5vw, 6.035rem);
+  }
+}
+
 
 @media (width <= 1240px) {
   .menu {
@@ -98,7 +111,7 @@
   }
 }
 
-@media (width <= 768px) {
+@media (width < 768px) {
   .menu {
     width: 100%;
     padding: 32px;
