@@ -8,9 +8,11 @@
   font: var(--h2-medium, normal 500 80px/0.95 var(--Manrope));
   flex-basis: 50%;
   letter-spacing: var(--letter-spacing-small, -0.04em);
+  max-width: 630px;
 }
 
 .couple_columns__content {
+  font: var(--body-regular);
   flex-basis: 50%;
 }
 
