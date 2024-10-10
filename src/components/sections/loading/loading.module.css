@@ -26,7 +26,7 @@
   font-size: 124px;
   font-weight: 800;
   line-height: 124px;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -54,6 +54,7 @@
 }
 .loading_description .third_line span {
   animation-delay: 1s, 3.75s;
+  padding-inline-end: 5px;
 }
 
 @keyframes loadingUp {
@@ -92,7 +93,7 @@
   line-height: 38px;
   letter-spacing: -0.04em;
   height: 40px;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .count_column {
