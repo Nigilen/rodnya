@@ -199,7 +199,7 @@ export const Tangle: FC = () => {
 
   return (
     <div className={cn(styles.main, "link-cursor")} >
-      <canvas id='canvas' ref={canvasRef} className="link-cursor" />
+      <canvas id='canvas' ref={canvasRef} className={cn('link-cursor', styles.canvas)} />
       <div className={styles.main_bg} onClick={handleMove}>
         <Image ref={imageRef} src="/clubok_img.webp" className="main__img link-cursor" width={1440} height={900} alt={''} />
       </div>
