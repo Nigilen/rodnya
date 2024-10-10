@@ -31,31 +31,6 @@
   cursor: pointer;
 }
 
-.modal {
-  margin: auto;
-  border: none;
-  background-color: var(--main-color, #ffffff);
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  z-index: 12;
-}
-
-.modal form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(3px);
-  z-index: 1;
-}
-
 .action_request {
   background-color: var(--rose, #FF213C);
   color: var(--main-color, #ffffff);
