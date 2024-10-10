@@ -59,7 +59,7 @@
   }
 }
 
-@media (width <= 768px) {
+@media (width < 768px) {
   .hero_content {
     row-gap: 30px;
     padding-inline: 16px;
