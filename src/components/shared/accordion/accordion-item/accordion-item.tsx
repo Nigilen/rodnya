@@ -18,7 +18,7 @@ export const AccordionItem: FC<TAccordionItemProps> = ({ title, children }) => {
   };
   return (
     <li className={styles.accordion_item}>
-      <div className={styles.accordion_item_heading} onClick={handleClick}>
+      <div className={cn(styles.accordion_item_heading, 'link-cursor')} onClick={handleClick}>
         <h3 className={styles.accordion_item__title}>{title}</h3>
         <IconPlus fill="#000000" className={cn([styles.accordion_item__icon, isOpen && styles.rotate])} />
       </div>

@@ -38,7 +38,7 @@ export const Services: FC<TServicesProps> = ({header, data}) => {
       <h2 className={styles.services_heading}>{header}</h2>
       <Accordion>
         {data.map((service: TService) => (
-          <AccordionItem key={service.id} title={service.title}>
+          <AccordionItem key={service.id} title={service.title} >
             <div className={styles.service_content}>
               {service.content.map((item, i: number) => {
                 if (Array.isArray(item.value)) {
