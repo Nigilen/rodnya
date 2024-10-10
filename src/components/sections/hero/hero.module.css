@@ -41,6 +41,7 @@
 .hero_title {
   font: var(--h1-medium, normal 500 140px/1.33 var(--Manrope));
   letter-spacing: var(--letter-spacing-small, -0.04em);
+  max-width: 514px;
 }
 
 .hero_description {
