@@ -17,15 +17,10 @@
 
 @media (width < 1440px) {
   .grid {
-    row-gap: 50px;
+    row-gap: 42px;
     grid-template-columns: 1fr;
   }
   .wrapper {
     padding-block: 0;
-  }
-}
-@media (width <= 768px) {
-  .grid {
-    row-gap: 30px;
   }
 }
