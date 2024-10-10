@@ -57,9 +57,13 @@
   }
 }
 
-@media (width <= 768px) {
+@media (width < 768px) {
   .contacts_list {
     row-gap: 25px;
+  }
+
+  .column__title {
+    margin-block-end: 10px;
   }
 
   .column__contacts dd:not(:last-child) {
