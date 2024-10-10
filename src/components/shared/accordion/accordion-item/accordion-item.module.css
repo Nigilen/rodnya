@@ -1,7 +1,5 @@
 .accordion_item {
-  list-style: none;
-  padding-block-end: 65px;
-  
+  list-style: none;  
 }
 
 .accordion_item:not(:last-of-type) {
@@ -18,7 +16,8 @@
 .accordion_item__icon {
   transform: rotate(0deg);
   transform-origin: center;
-  transition: all .3s ease-in-out
+  transition: all .3s ease-in-out;
+  
 }
 
 .rotate {
@@ -29,6 +28,8 @@
   font: var(--h3-medium, normal 500 40px/0.95 var(--Manrope));
   letter-spacing: var(--letter-spacing-small, -0.04em);
   padding-block: 35px 36px;
+  min-width: 75%;
+  max-width: 84%;
 }
 
 .accordion_content {
@@ -42,8 +43,15 @@
   max-height: 1000px;
 }
 
-@media (width <= 768px) {
-  .accordion_item {
-    padding-block-end: 25px;
+
+@media (width < 1440px) {
+  .accordion_item__title {
+    line-height: 0.95;
+  }
+}
+
+@media (width < 768px) {
+  .accordion_item__title {
+    line-height: 1.2;
   }
 }
