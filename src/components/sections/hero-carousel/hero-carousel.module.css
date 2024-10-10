@@ -39,7 +39,6 @@
   background-color: var(--main-color, #ffffff);;
   border: none;
   border-radius: 100%;
-  cursor: pointer;
 }
 
 .nav_dot__current {

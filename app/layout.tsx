@@ -20,13 +20,14 @@ export default function RootLayout({
         <AnimatedCursor 
           showSystemCursor={true}
           innerSize={24}
-          outerSize={0}
+          outerSize={22}
           color='181, 181, 181'
-          outerAlpha={1}
-          innerScale={2}
-          outerScale={0}
+          outerAlpha={0.9}
+          innerScale={0.1}
+          outerScale={2}
+          trailingSpeed={1}
           outerStyle={{
-            filter: 'blur(14px)'
+            filter: 'blur(3px)',
           }}
           clickables={[
             'a',

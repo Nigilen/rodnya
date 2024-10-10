@@ -86,7 +86,6 @@
   align-self: self-start;
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 
 @media (width <= 2560px) {
