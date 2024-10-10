@@ -39,7 +39,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
             prevEl: '.control__left',
             nextEl: '.control__right',
           }}
-          wrapperClass='container'
+          wrapperClass='team-container'
           breakpoints={
             {
               0: {

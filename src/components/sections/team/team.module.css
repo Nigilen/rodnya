@@ -15,6 +15,7 @@
 
 .team__wrapper {
   position: relative;
+  padding-inline: 56px;
   width: 100%;
 }
 
@@ -22,6 +23,7 @@
   list-style: none;
   display: flex;
   column-gap: 53px;
+  overflow-x: visible;
 }
 
 .member {
@@ -70,7 +72,10 @@
   right: 0;
 }
 
-@media (width <= 1400px) {
+@media (width < 1400px) {
+  .team__wrapper {
+    padding-inline: 40px;
+  }
   .team__heading {
     margin-bottom: 70px;
   }
@@ -78,7 +83,10 @@
     padding-block: 102px 103px;
   }
 }
-@media (width <= 768px) {
+@media (width < 768px) {
+  .team__wrapper {
+    padding-inline: 15px;
+  }
   .team__heading {
     margin-bottom: 72px;
   }
