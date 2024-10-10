@@ -182,7 +182,7 @@ button {
   }
 }
 
-@media (width <= 768px) {
+@media (width < 768px) {
   :root {
     --h1-medium: normal 500 80px/0.95 var(--Manrope);
     --h2-medium: normal 500 50px/0.95 var(--Manrope);
