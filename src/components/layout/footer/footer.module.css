@@ -24,6 +24,9 @@
 }
 
 @media (max-width: 768px) {
+  .footer_bottom p:last-child {
+    text-align: start;
+  }
   .footer_bottom {
     grid-template-columns: 1fr;
     gap: 12px;

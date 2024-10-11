@@ -1,14 +1,14 @@
 export const APP_ROUTES = {
   ROOT: "/",
-  CASES: "/cases",
   ABOUT: "/about",
+  CASES: "/cases",
   CONTACTS: "/contacts"
 } as const;
 
 export const ROUTES_NAMES_MAP = {
   "/": "Главная",
-  "/cases": "Кейсы",
   "/about": "О нас",
+  "/cases": "Кейсы",
   "/contacts": "Контакты"
 } as const;
 
@@ -19,14 +19,14 @@ export const NAV_LINKS = [
     title: ROUTES_NAMES_MAP[APP_ROUTES.ROOT],
   },
   {
-    id: "qw",
-    route: APP_ROUTES.CASES,
-    title: ROUTES_NAMES_MAP[APP_ROUTES.CASES],
-  },
-  {
     id: "qs",
     route: APP_ROUTES.ABOUT,
     title: ROUTES_NAMES_MAP[APP_ROUTES.ABOUT],
+  },
+  {
+    id: "qw",
+    route: APP_ROUTES.CASES,
+    title: ROUTES_NAMES_MAP[APP_ROUTES.CASES],
   },
   {
     id: "qf",

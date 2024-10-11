@@ -63,8 +63,8 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
               <picture className={styles.member__img_wrapper}>
                 <img className={styles.member__img} src={member.photo} alt={member.name} width={395} height={284}/>
               </picture>
-              <h3 className={styles.member__position} >{member.position}</h3>
-              <p className={styles.member__name} >{member.name}</p>
+              <h3 className={styles.member__name} >{member.name}</h3>
+              <p className={styles.member__position} >{member.position}</p>
             </SwiperSlide>
           ))}
           <button className={cn(styles.controls, styles.control__left, 'control__left')}></button>
