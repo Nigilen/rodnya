@@ -85,14 +85,14 @@
 	],
 	"images":[
 		{
-			"mimeType":"image/png",
-			"name":"MergedBake_Bake1_PBR_Diffuse3",
-			"uri":"MergedBake_Bake1_PBR_Diffuse3.png"
+			"mimeType":"image/webp",
+			"name":"MergedBake_Bake2_PBR_Diffuse3",
+			"uri":"MergedBake_Bake2_PBR_Diffuse3.webp"
 		},
 		{
-			"mimeType":"image/png",
-			"name":"text1",
-			"uri":"text1.png"
+			"mimeType":"image/webp",
+			"name":"text2",
+			"uri":"text2.webp"
 		}
 	],
 	"accessors":[

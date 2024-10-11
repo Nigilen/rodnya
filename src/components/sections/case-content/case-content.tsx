@@ -36,6 +36,8 @@ type Data = {
   allCases: SingleCase[]
 };
 
+// NOTE 
+
 export const CaseContent: FC<Data> = ({data, allCases}) => {
   const [nextCase, setNextCase] = useState<SingleCase>();
 
