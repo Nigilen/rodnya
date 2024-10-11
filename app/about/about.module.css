@@ -7,6 +7,7 @@
   flex-direction: column; 
   gap: 63px;
   padding-block: 56px;
+  background-color: #ffffff;
 }
 
 @media (width < 1440px) {
