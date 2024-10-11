@@ -44,10 +44,7 @@ export const CaseContent: FC<Data> = ({data, allCases}) => {
       const index = allCases.findIndex(item => item.slug === data.slug);
       return allCases[index + 1]?.slug ? allCases[index + 1] : undefined;
     })
-  }, [data, allCases]);
-
-  console.log(nextCase);
-
+  }, [data, allCases, setNextCase, nextCase]);
 
 
   const works = [ 
