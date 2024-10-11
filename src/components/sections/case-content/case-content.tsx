@@ -8,7 +8,7 @@ import cn from 'classnames';
 import { FC } from "react";
 import { HTMLBlock } from "@/src/utils/html-block";
 
-type Data = {
+export type Data = {
   data: {
     slug: string,
     title: string,
@@ -29,10 +29,30 @@ type Data = {
         name: string,
         number: number
       }[] 
+  },
+  nextCase: {
+    slug: string,
+    title: string,
+    slider: string[],
+    source_name_1: string,
+    source_url_1: string,
+    source_name_2: string,
+    source_url_2: string,
+    client: string,
+    task: string,
+    decision: string,
+    results: {
+      name: string,
+      description: string
+    }[],
+    awards: {
+      name: string,
+      number: number
+    }[] 
   }
 }
 
-export const CaseContent: FC<Data> = ({data}) => {
+export const CaseContent: FC<Data> = ({data, nextCase}) => {
 
   const works = [
     {
@@ -70,8 +90,8 @@ export const CaseContent: FC<Data> = ({data}) => {
             </Summaries>
           </CoupleColumns>  
           <footer className={styles.case_footer}>
-            <CoupleColumns heading={"День Работника Торговли"} border>
-              <NextCaseLink />
+            <CoupleColumns heading={nextCase.title} border>
+              <NextCaseLink slug={nextCase.slug}/>
             </CoupleColumns> 
           </footer>   
         </section>
