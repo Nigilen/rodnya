@@ -149,6 +149,27 @@
 
 
 
+@media (width > 1400px) {
+  .loading {
+    padding-inline: 35px;
+  }
+  .loading_title {
+    font-size: 55px;
+    line-height: 52.25px;
+    margin-block-end: 130px;
+  }
+  .loading_description {
+    font-size: 170px;
+    line-height: 170px;
+  }
+  .loading_progress {
+    font-size: 55px;
+    line-height: 52.25px;
+    left: 50px;
+    height: 100px;
+  }
+}
+
 @media (width < 1400px) {
   .loading {
     padding-inline: 35px;
