@@ -3,7 +3,7 @@ import styles from "./couple-columns.module.css";
 import cn from "classnames";
 
 type TCoupleColumnsProps = {
-  heading: string,
+  heading?: string,
   border?: boolean,
   project?: string, 
   children: ReactNode

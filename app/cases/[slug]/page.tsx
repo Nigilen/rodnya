@@ -23,15 +23,10 @@ export default async function Page(
     console.error(e);
   }
   
-  const currentCase = allCases.find((item: { slug: string; }) => item.slug === params.slug);
-  const nextCaseIndex = allCases.indexOf(currentCase) + 1;
-  const nextCase = allCases[nextCaseIndex + 1];
-
-
   return (
     <div>
       <HeroCarousel heading={""} items={caseDate.slider} />
-      <CaseContent data={caseDate} nextCase={nextCase} />
+      <CaseContent data={caseDate} allCases={allCases} />
       <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
     </div>
   )

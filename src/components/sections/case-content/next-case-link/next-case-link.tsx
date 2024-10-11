@@ -5,7 +5,7 @@ import { FC } from "react";
 import { FRONT_BASE_URL } from "@/src/utils/config";
 
 type Props = {
-  slug: string;
+  slug?: string;
 };
 
 export const NextCaseLink: FC<Props> = ({slug}) => {

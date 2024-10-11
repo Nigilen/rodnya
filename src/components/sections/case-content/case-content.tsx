@@ -1,3 +1,5 @@
+'use client'
+
 import { CoupleColumns } from "../../blocks/couple-columns";
 import styles from './case-content.module.css';
 import { CaseAbout } from "./case-about/case-about";
@@ -5,56 +7,50 @@ import { Summary } from "@/src/ui-kit/summary/summary";
 import { Summaries } from "../../blocks/summaries/summaries";
 import { NextCaseLink } from "./next-case-link/next-case-link";
 import cn from 'classnames';
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { HTMLBlock } from "@/src/utils/html-block";
 
-export type Data = {
-  data: {
-    slug: string,
-    title: string,
-    slider: string[],
-    source_name_1: string,
-    source_url_1: string,
-    source_name_2: string,
-    source_url_2: string,
-    client: string,
-    task: string,
-    decision: string,
-    results:
-      {
-        name: string,
-        description: string
-      }[],
-    awards: {
-        name: string,
-        number: number
-      }[] 
-  },
-  nextCase: {
-    slug: string,
-    title: string,
-    slider: string[],
-    source_name_1: string,
-    source_url_1: string,
-    source_name_2: string,
-    source_url_2: string,
-    client: string,
-    task: string,
-    decision: string,
-    results: {
-      name: string,
-      description: string
-    }[],
-    awards: {
-      name: string,
-      number: number
-    }[] 
-  }
-}
+type SingleCase = {
+  slug: string,
+  title: string,
+  slider: string[],
+  source_name_1: string,
+  source_url_1: string,
+  source_name_2: string,
+  source_url_2: string,
+  client: string,
+  task: string,
+  decision: string,
+  results:{
+    name: string,
+    description: string
+  }[],
+  awards: {
+    name: string,
+    number: number
+  }[] 
+};
 
-export const CaseContent: FC<Data> = ({data, nextCase}) => {
+type Data = {
+  data: SingleCase,
+  allCases: SingleCase[]
+};
 
-  const works = [
+export const CaseContent: FC<Data> = ({data, allCases}) => {
+  const [nextCase, setNextCase] = useState<SingleCase>();
+
+  useEffect(() => {
+    setNextCase(() => {
+      const index = allCases.findIndex(item => item.slug === data.slug);
+      return allCases[index + 1]?.slug ? allCases[index + 1] : undefined;
+    })
+  }, [data, allCases]);
+
+  console.log(nextCase);
+
+
+
+  const works = [ 
     {
       id: 'wd1',
       title: data.source_name_1,
@@ -90,8 +86,8 @@ export const CaseContent: FC<Data> = ({data, nextCase}) => {
             </Summaries>
           </CoupleColumns>  
           <footer className={styles.case_footer}>
-            <CoupleColumns heading={nextCase.title} border>
-              <NextCaseLink slug={nextCase.slug}/>
+            <CoupleColumns heading={nextCase?.title} border>
+              <NextCaseLink slug={nextCase?.slug}/>
             </CoupleColumns> 
           </footer>   
         </section>
