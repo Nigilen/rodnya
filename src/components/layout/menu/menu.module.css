@@ -6,7 +6,7 @@
   inset-inline-end: 0;
   inset-block: 0;
   padding: 60px;
-  height: 100vh;
+  height: 100dvh;
   color: var(--main-color, #FFFFFF);
   background-color: var(--rose, #FF213C);
   width: 45%;
