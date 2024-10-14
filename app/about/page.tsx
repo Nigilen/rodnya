@@ -8,54 +8,26 @@ import { Award } from "@/src/ui-kit/award/award";
 import { Paragraph } from "@/src/ui-kit/paragraph/paragraph";
 import styles from "./about.module.css";
 import cn from "classnames";
-import { getContacts, getServices, getSocials, getTeam } from "@/src/api/api";
+import { getAbout, getContacts, getServices, getSocials, getTeam } from "@/src/api/api";
 
-const awardsMock = [
-  {
-    title: "Сannes Liones",
-    counter: 3
-  },
-  {
-    title: "Ad Black Sea",
-    counter: 2
-  },
-  {
-    title: "Silver Mercury",
-    counter: 6
-  },
-  {
-    title: "Effie/E+",
-    counter: 6
-  },
-  {
-    title: "ADCR Awards",
-    counter: 2
-  },
-  {
-    title: "Proba Awards",
-    counter: 2
-  },
-  {
-    title: "White Square",
-    counter: 5
-  },
-  {
-    title: "Red Apple",
-    counter: 1
-  }, 
-];
+type Awards = {
+    name: string;
+    number: number;
+  }[]
 
 export default async function Page() {
   let services = null;
   let team = null;
   let contacts = null;
   let socials = null;
+  let about: Awards | null = null;
 
   try {
     services = await getServices();
     team = await getTeam();
     contacts = await getContacts();
     socials = await getSocials();
+    about = await getAbout().then(data => data.data.awards);
   } catch (error) {
     console.error(error);
   }
@@ -70,7 +42,7 @@ export default async function Page() {
         </CoupleColumns>
         <List>
           {
-            awardsMock.map(({ title, counter }) => <Award key={title} text={title} counter={counter} />)  
+            about?.map(({ name, number }) => <Award key={name} text={name} counter={number} />)  
           }
         </List>
         <p className={styles.caption}>Состоим в ассоциациях АКОС и АБА</p>

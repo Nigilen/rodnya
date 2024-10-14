@@ -10,6 +10,11 @@ export const getServices = async () => {
     .then(response => response.json());
 };
 
+export const getAbout = async () => {
+  return await fetch(`${API_URL}/about`, { next: {revalidate: 20 }})
+    .then(response => response.json());
+};
+
 export const getTeam = async () => {
   return await fetch(`${API_URL}/team`, { next: {revalidate: 20 }})
     .then(response => response.json());
