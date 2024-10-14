@@ -26,9 +26,9 @@ export default async function Page(
   
   return (
     <div>
-      {caseDate.video_link ? 
+      {caseDate?.video_link ? 
         
-        <CaseVideo video={caseDate.video_link} preview={caseDate.preview} />
+        <CaseVideo video={caseDate.video_link} preview={caseDate.video_preview} />
         :
         <HeroCarousel heading={""} items={caseDate.slider} />
       }
