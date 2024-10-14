@@ -19,8 +19,10 @@
 }
 
 .footer__index p {
-  max-width: 300px;
+  max-width: 240px;
 }
+
+
 
 .footer__index_right {
   text-align: right;
