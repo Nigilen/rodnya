@@ -48,6 +48,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           scrollbar={{
             el: '.swiper-scrollbar',
             hide: true,
+            enabled: false,
             draggable: false,
           }}
           breakpoints={
