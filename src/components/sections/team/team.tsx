@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-import { Navigation } from 'swiper/modules';
+import { Mousewheel, Navigation } from 'swiper/modules';
 
 type TTeamProps = {
   name: string,
@@ -34,12 +34,21 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           pagination={{
             clickable: true,
           }}
-          modules={[Navigation]}
+          modules={[Navigation, Mousewheel]}
           navigation={{
             prevEl: '.control__left',
             nextEl: '.control__right',
           }}
+          mousewheel={{
+            forceToAxis: false,
+            sensitivity: 2,
+            releaseOnEdges: true,
+          }}
           wrapperClass='team-container'
+          scrollbar={{
+            el: '.swiper-scrollbar',
+            hide: true,
+          }}
           breakpoints={
             {
               0: {
