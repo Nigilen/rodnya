@@ -27,7 +27,7 @@ export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items }) => {
           loop={true}
           speed={1000}
           autoplay={{
-            delay: 1000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           pagination={{
