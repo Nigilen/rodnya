@@ -45,12 +45,13 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           // }}
           wrapperClass='team-container'
           simulateTouch={true}
-          scrollbar={{
-            el: '.swiper-scrollbar',
-            hide: true,
-            enabled: false,
-            draggable: false,
-          }}
+          scrollbar={false}
+          // scrollbar={{
+          //   el: '.swiper-scrollbar',
+          //   hide: true,
+          //   enabled: false,
+          //   draggable: false,
+          // }}
           breakpoints={
             {
               0: {
