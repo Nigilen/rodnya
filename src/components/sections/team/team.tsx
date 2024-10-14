@@ -39,13 +39,13 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
             prevEl: '.control__left',
             nextEl: '.control__right',
           }}
-          mousewheel={{
-            forceToAxis: false,
-            sensitivity: 1,
-            releaseOnEdges: true,
-          }}
+          // mousewheel={{
+          //   forceToAxis: false,
+          //   sensitivity: 1,
+          //   releaseOnEdges: true,
+          // }}
           wrapperClass='team-container'
-          simulateTouch={false}
+          simulateTouch={true}
           scrollbar={{
             el: '.swiper-scrollbar',
             hide: true,
@@ -58,15 +58,15 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
               },
               375: {
                 slidesPerView: 1.2,
-                simulateTouch: true
+                // simulateTouch: true
               },
               768: {
                 slidesPerView: 2.3,
-                simulateTouch: true
+                // simulateTouch: true
               },
               1440: {
                 slidesPerView: 3.3,
-                simulateTouch: false
+                // simulateTouch: false
               }
             }
           }
