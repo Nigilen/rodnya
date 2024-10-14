@@ -30,7 +30,6 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
         <Swiper
           slidesPerView={3.3}
           spaceBetween={30}
-          
           pagination={{
             clickable: false,
           }}
@@ -46,11 +45,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           // }}
           wrapperClass='team-container'
           simulateTouch={true}
-          scrollbar={{
-            el: '.swiper-scrollbar',
-            hide: true,
-            draggable: false,
-          }}
+          scrollbar={false}
           breakpoints={
             {
               0: {
