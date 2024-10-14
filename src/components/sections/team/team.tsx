@@ -22,6 +22,7 @@ type TTeamProps = {
   }[];
 };
 
+
 export const Team: FC<TTeamProps> = ({ name, members }) => {
   return (
     <section className={cn(styles.team, styles.wrapper)}>
