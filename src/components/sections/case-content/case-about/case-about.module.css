@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin-block-end: 30px;
+  
   row-gap: 10px;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .awards_list_heading {
+  margin-block-start: 30px;
   margin-block-end: 30px;
   font-weight: 400;
 }
@@ -41,19 +42,17 @@
 
 
 @media (width < 1440px) {
-  .works_list {
-    margin-block-end: 35px;
+  .awards_list_heading {
+    margin-block-start: 35px;
   }
 }
 
 @media (width <= 768px) {
   .awards_list_heading {
+    margin-block-start: 50px;
     margin-block-end: 10px;
   }
   .awards_list {
     row-gap: 10px;
-  }
-  .works_list {
-    margin-block-end: 50px;
   }
 }
