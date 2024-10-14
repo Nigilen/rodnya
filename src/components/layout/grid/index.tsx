@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 type Case ={
   slug: string,
   title: string,
+  preview: string,
   slider: string[],
   source_name_1: string,
   source_url_1: string,
@@ -56,7 +57,7 @@ export const Grid: FC<Cases> = ({cases}) => {
     <>
       <ul className={cn(styles.grid, styles.wrapper, 'container')}>
         {twoCase.map((item: Case) => (
-          <CasesPreview key={item.slug} alias={'/cases/' + item.slug} company={item.client} title={item.title} img={item.slider[0]} />
+          <CasesPreview key={item.slug} alias={'/cases/' + item.slug} company={item.client} title={item.title} img={item.slider.length < 1 ? item.preview : item.slider[0]} />
         ))}
       </ul>
       <div className={styles.load_triger} ref={ref}></div>

@@ -54,6 +54,15 @@
 }
 
 @font-face {
+  font-family: 'Manrope';
+  src: url('./../public/fonts/Manrope-ExtraBold.woff');
+  src: local('Manrope ExtraBold'), local('Manrope-ExtraBold'),
+      url('./../public/fonts/Manrope-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Manrope-variators';
   src: url('./../public/fonts/Manrope-VariableFont_wght.woff') format('woff');
   font-weight: 400 500 700;
