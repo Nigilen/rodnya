@@ -24,19 +24,23 @@ export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
           </li>
         )}
       </ul>
-      <h3 className={styles.awards_list_heading}>Награды:</h3>
-      <ul className={styles.awards_list}>
-        {awards.map(award => 
-          <li className={styles.award} key={award.name}>
-            <p className={styles.award__text}>
-              {award.name}
-              <span className={styles.award__counter}>
-                ({award.number})
-              </span>
-            </p>
-          </li>
-        )}
-      </ul>
+      {awards.length > 0 && 
+        <section>
+          <h3 className={styles.awards_list_heading}>Награды:</h3>
+          <ul className={styles.awards_list}>
+            {awards.map(award => 
+              <li className={styles.award} key={award.name}>
+                <p className={styles.award__text}>
+                  {award.name}
+                  <span className={styles.award__counter}>
+                    ({award.number})
+                  </span>
+                </p>
+              </li>
+            )}
+          </ul>
+        </section>
+      }
     </div>
   )
 }
