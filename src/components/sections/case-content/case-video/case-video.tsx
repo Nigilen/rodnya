@@ -12,7 +12,7 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
   const [isActive, setIsActive] = useState(false);
   
   return (
-    <div className={styles.video} style={{ backgroundImage: `url(${preview})` }}>
+    <div className={styles.video} style={{ backgroundImage: `linear-gradient(to bottom, black -50%, transparent 30%), url(${preview})` }}>
       {!isActive && <button className={styles.play} type='button' onClick={() => setIsActive(!isActive)}>
         <img src="/play.svg" alt="play" />
       </button>
