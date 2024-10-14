@@ -30,9 +30,9 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
         <Swiper
           slidesPerView={3.3}
           spaceBetween={30}
-          centeredSlides={false}
+          
           pagination={{
-            clickable: true,
+            clickable: false,
           }}
           modules={[Navigation, Mousewheel]}
           navigation={{
@@ -41,13 +41,15 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           }}
           mousewheel={{
             forceToAxis: false,
-            sensitivity: 2,
+            sensitivity: 1,
             releaseOnEdges: true,
           }}
           wrapperClass='team-container'
+          simulateTouch={false}
           scrollbar={{
             el: '.swiper-scrollbar',
             hide: true,
+            draggable: false,
           }}
           breakpoints={
             {
@@ -56,12 +58,15 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
               },
               375: {
                 slidesPerView: 1.2,
+                simulateTouch: true
               },
               768: {
                 slidesPerView: 2.3,
+                simulateTouch: true
               },
               1440: {
                 slidesPerView: 3.3,
+                simulateTouch: false
               }
             }
           }

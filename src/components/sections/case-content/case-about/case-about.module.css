@@ -52,6 +52,11 @@
     margin-block-start: 50px;
     margin-block-end: 10px;
   }
+  .works_list {
+    row-gap: 10px;
+    line-height: 1; 
+  }
+
   .awards_list {
     row-gap: 10px;
   }
