@@ -36,14 +36,15 @@ type Data = {
   allCases: SingleCase[]
 };
 
-// NOTE 
-
 export const CaseContent: FC<Data> = ({data, allCases}) => {
   const [nextCase, setNextCase] = useState<SingleCase>();
 
   useEffect(() => {
     setNextCase(() => {
-      const index = allCases.findIndex(item => item.slug === data.slug);
+      let index = allCases.findIndex(item => item.slug === data.slug);
+      if(index ===  allCases.length - 1) {
+        index = -1
+      }
       return allCases[index + 1]?.slug ? allCases[index + 1] : undefined;
     })
   }, [data, allCases, setNextCase, nextCase]);
