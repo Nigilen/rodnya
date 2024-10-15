@@ -37,3 +37,14 @@
     height: 60dvh;
   }
 }
+
+@media (width < 1440px) {
+  .main_bg {
+    background-image: url('/index-bg-768.svg');
+  }
+}
+@media (width < 768px) {
+  .main_bg {
+    background-image: url('/index-bg-375.svg');
+  }
+}

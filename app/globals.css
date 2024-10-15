@@ -194,6 +194,9 @@ button {
   
     --link-text: normal 500 35px/0.95 var(--Manrope);
   }
+  .main__img {
+    width: 80%;
+  }
 }
 
 @media (width < 768px) {
@@ -212,5 +215,8 @@ button {
   
   .container {
     padding-inline: 16px;
+  }
+  .main__img {
+    width: 77%;
   }
 }
