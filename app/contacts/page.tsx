@@ -2,6 +2,7 @@ import { Hero } from '@/src/components/sections/hero/hero';
 import styles from './contacts.module.css';
 import { Actions } from '@/src/components/sections/actions/actions';
 import { getContacts, getSocials } from '@/src/api/api';
+import cn from 'classnames';
 
 type Socials = {
   data: {
@@ -30,7 +31,7 @@ export default async function Page() {
         <dl className={styles.contacts_list}>
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Адрес</dt>
-            <dd className={styles.contacts_item__definition}>
+            <dd className={cn(styles.contacts_item__definition, styles.contacts_item__definition_address)}>
               {contacts.data.address_name}
             </dd>
           </div>

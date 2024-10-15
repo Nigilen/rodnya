@@ -73,4 +73,7 @@
   .column__social dd:not(:last-child) {
     margin-block-end: 4px;
   }
+  .column__definition__address {
+    max-width: 260px;
+  }
 }

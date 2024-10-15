@@ -52,7 +52,7 @@ export const ContactsFooter: FC<Contacts & Socials> = ({contacts, socials}) => {
           </div>
           <div className={styles.column}>
             <dt className={styles.column__title}>Адрес</dt>
-            <dd className={styles.column__definition}>{contacts.address_name}</dd>
+            <dd className={cn(styles.column__definition, styles.column__definition__address)}>{contacts.address_name}</dd>
           </div>
         </dl>
       </address>
