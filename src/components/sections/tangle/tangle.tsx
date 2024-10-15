@@ -22,7 +22,9 @@ export const Tangle: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  const handleMove = () => {
+  // NOTE тротл поставить
+
+  const handleMove = () => { // TODO cменить название 
     canvasRef.current?.classList.add(styles.animation);
     setTimeout(() => {
       router.push('/cases');
@@ -48,7 +50,6 @@ export const Tangle: FC = () => {
       1000
     );
     camera.position.z = 5.2;
-    
     
     const scene = new THREE.Scene();
 
