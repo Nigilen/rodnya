@@ -26,17 +26,30 @@
 .play {
   position: absolute;
   inset: 0;
+
+}
+.play img {
+  width: 124px;
+  height: 124px;
 }
 
 @media (width >= 1920px) {
   .video {
     height: 800px;
   }
+  .play img {
+    width: 162px;
+    height: 162px;
+  }
 }
 
 @media (width >= 2560px) {
   .video {
     height: 900px;
+  }
+  .play img {
+    width: 192px;
+    height: 192px;
   }
 }
 
@@ -49,5 +62,9 @@
 @media (width < 768px) {
   .video {
     height: 460px;
+  }
+  .play img {
+    width: 108px;
+    height: 108px;
   }
 }
