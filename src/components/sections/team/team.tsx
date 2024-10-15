@@ -75,7 +75,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
                 // simulateTouch: false
               },
               2560: {
-                slidesPerView: 5.3,
+                slidesPerView: 5.7,
                 // simulateTouch: false
               }
             }
