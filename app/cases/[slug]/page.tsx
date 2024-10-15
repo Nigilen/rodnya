@@ -30,7 +30,7 @@ export default async function Page(
         
         <CaseVideo video={caseDate.video_link} preview={caseDate.video_preview} />
         :
-        <HeroCarousel heading={""} items={caseDate?.slider} preview={caseDate.preview} />
+        <HeroCarousel heading={""} items={caseDate?.slider} preview={caseDate?.preview} />
       }
       <CaseContent data={caseDate} allCases={allCases} />
       <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />

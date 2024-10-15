@@ -22,9 +22,7 @@ export const Tangle: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  // NOTE тротл поставить
-
-  const handleMove = () => { // TODO cменить название 
+  const handleMove = () => { 
     canvasRef.current?.classList.add(styles.animation);
     setTimeout(() => {
       router.push('/cases');
