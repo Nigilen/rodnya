@@ -8,8 +8,8 @@ type TParagraphP = {
 
 export const Paragraph: FC<TParagraphP> = ({text}) => {
   return (
-    <p className={styles.paragraph}>
-      <HTMLBlock rawHtml={text} />
-    </p>
+    // <p className={styles.paragraph}>
+      <HTMLBlock rawHtml={text} className={styles.paragraph}/>
+    // </p>
   );
 }
