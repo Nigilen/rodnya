@@ -11,6 +11,8 @@ import Loading from '../loading/loading';
 
 
 export const Tangle: FC = () => {
+
+  // прелоадер
   const [preload, setPreload] = useState(true);
 
   useLayoutEffect(() => {
@@ -19,8 +21,12 @@ export const Tangle: FC = () => {
 
   const router = useRouter();
 
+  // клубок
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+
+  // снова часть прелоадера
 
   const handleMove = () => { 
     canvasRef.current?.classList.add(styles.animation);
@@ -29,18 +35,34 @@ export const Tangle: FC = () => {
     }, 900);
   }
 
+  // продолженение клубка
+
+
+
+  // при первом рендере
   useLayoutEffect(()=>{
+    // вычисляем размер окна
     const sizes = {
       width: window.innerWidth,
       height: window.innerHeight,
     };
 
+    // стартовые размеры модели
+    const modelInitScalers = {
+      width: 0.07,
+      height: 0.075,
+    };
+      
+
+    // создаем холст
     const renderer = new THREE.WebGLRenderer({ 
       canvas: canvasRef.current as HTMLCanvasElement,
       antialias: true,
       alpha: true,
     });
 
+
+    // создаем камеру
     const camera = new THREE.PerspectiveCamera(
       45,
       sizes.width / sizes.height,
@@ -49,17 +71,17 @@ export const Tangle: FC = () => {
     );
     camera.position.z = 5.2;
     
+    // создаем сцену
     const scene = new THREE.Scene();
 
+    // загружаем модель
     const gltfLoader = new GLTFLoader();
 
     let model: THREE.Group<THREE.Object3DEventMap>;
     let spotLight: THREE.SpotLight;
     
-    const modelInitScalers = {
-      width: 0.07,
-      height: 0.075,
-    };
+
+    // стартовы размеры экрана
     const initScreenSizes = {
       width: 1440,
       height: 900,
@@ -175,8 +197,7 @@ export const Tangle: FC = () => {
       renderer.render( scene, camera );
     }
 
-    window.addEventListener('mousemove', (e) => {
-      // check if desktop
+    function moveTangle(e: MouseEvent) {
       const windowWidth = document.documentElement.clientWidth;
       const isDesktop = windowWidth >= 1200;
       if (!isDesktop) return;
@@ -185,12 +206,16 @@ export const Tangle: FC = () => {
       mouseYNormalized = ( e.clientY - windowHalfY );
     
       requestAnimationFrame(animate);
-    }, { passive: true });
+    }
 
     
-    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('mousemove', moveTangle);
+    window.addEventListener('resize', handleResize);
+    
+    
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('mousemove', moveTangle);
     }
 
   },[]);
@@ -200,7 +225,7 @@ export const Tangle: FC = () => {
     <div className={cn(styles.main, "link-cursor")} >
       <canvas id='canvas' ref={canvasRef} className={cn('link-cursor', styles.canvas)} />
       <div className={styles.main_bg} onClick={handleMove}>
-        <Image ref={imageRef} src="/clubok_img.webp" className="main__img link-cursor" width={1440} height={900} alt={''} />
+        <Image priority ref={imageRef} src="/clubok_img.webp" className="main__img link-cursor" width={1440} height={900} alt={''} />
       </div>
       {preload && <Loading />}
     </div>
