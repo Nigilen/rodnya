@@ -198,8 +198,9 @@
     margin-block-end: 165px;
   }
   .loading_description {
-    font-size: 76px;
+    font-size: 73px;
     line-height: 76px;
+    letter-spacing: -0.06em;
   }
   .loading_description .third_line span {
     padding-inline-end: 22px;
@@ -225,8 +226,9 @@
     max-width: 180px;
   }
   .loading_description {
-    font-size: 38px;
+    font-size: 36px;
     line-height: 38px;
+    letter-spacing: -0.04em;
   }
   .loading_progress {
     font-size: 22px;
