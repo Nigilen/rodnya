@@ -1,0 +1,16 @@
+@media (width < 1440px) {
+  .case-header-gap {
+    gap: 40px;
+  }
+  .results-gap {
+    gap: 70px;
+  }
+}
+@media (width < 768px) {
+  .case-header-gap {
+    gap: 30px;
+  }
+  .results-gap {
+    gap: 30px;
+  }
+}

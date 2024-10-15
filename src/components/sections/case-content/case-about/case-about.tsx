@@ -15,15 +15,17 @@ type TCaseAbout = {
 export const CaseAbout: FC<TCaseAbout> = ({works, awards}) => {
   return (
     <div className={styles.case_info}>
-      <ul className={styles.works_list}>
-        {works.map(work => 
-          <li className={styles.work} key={work.title}>
-            <a className='button-link' href={work.link} target="blank">
-              {work.title}
-            </a>
-          </li>
-        )}
-      </ul>
+      {works.length > 0 && 
+        <ul className={styles.works_list}>
+          {works.map(work => 
+            <li className={styles.work} key={work.title}>
+              <a className='button-link' href={work.link} target="blank">
+                {work.title}
+              </a>
+            </li>
+          )}
+        </ul>
+      }
       {awards.length > 0 && 
         <section>
           <h3 className={styles.awards_list_heading}>Награды:</h3>

@@ -67,7 +67,7 @@ export const CaseContent: FC<Data> = ({data, allCases}) => {
     <div>
       <article className={styles.case}>
         <header className={cn(styles.case_header, 'container')}>
-          <CoupleColumns heading={data.title} project={data.client}>
+          <CoupleColumns heading={data.title} project={data.client} classModifier="case-header-gap">
             <CaseAbout works={works} awards={data.awards} />
           </CoupleColumns>
         </header>
@@ -78,7 +78,7 @@ export const CaseContent: FC<Data> = ({data, allCases}) => {
           <CoupleColumns heading={"Решение"} border>
             <HTMLBlock rawHtml={data.decision} />
           </CoupleColumns>
-          <CoupleColumns heading={"Результаты"} border>
+          <CoupleColumns heading={"Результаты"} border classModifier="results-gap">
             <Summaries>
               {data.results.map((result, i) => (
                 <Summary key={i} termin={result.description} definition={result.name} />

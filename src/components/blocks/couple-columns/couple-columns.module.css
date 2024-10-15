@@ -34,7 +34,7 @@
   }
 }
 
-@media (width <= 768px) {
+@media (width < 768px) {
   .couple_columns {
     gap: 30px;
   }
