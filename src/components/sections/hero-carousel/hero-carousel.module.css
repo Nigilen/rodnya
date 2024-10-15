@@ -10,9 +10,11 @@
 .carousel::before {
   content: "";
   position: absolute;
+  z-index: 23;
   inset: 0;
   background-image: linear-gradient(to bottom, black -50%, transparent 30%);
 }
+
 
 .carousel__track {
   display: flex;
