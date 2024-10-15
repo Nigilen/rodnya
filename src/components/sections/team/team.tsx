@@ -27,7 +27,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
   return (
     <section className={cn(styles.team, styles.wrapper)}>
       <h2 className={cn(styles.team__heading, 'container')}>{name}</h2>
-      <div className={styles.team__wrapper}>
+      <div className={cn(styles.team__wrapper, 'remove_swiper_overflow')}>
         <Swiper
           slidesPerView={3.3}
           spaceBetween={30}
