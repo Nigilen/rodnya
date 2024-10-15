@@ -31,3 +31,9 @@
     filter: blur(10px);
   }
 } 
+
+@media (width >= 2560px) {
+  .main_bg {
+    height: 60dvh;
+  }
+}
