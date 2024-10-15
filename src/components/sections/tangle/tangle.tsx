@@ -67,8 +67,8 @@ export const Tangle: FC = () => {
     } 
     const imgToHideOnLoad = imageRef.current as HTMLImageElement;
     const scaleBoundaries = {
-      max: 0.15,
-      min: 0.1,
+      max: 0.16,
+      min: 0.11,
     };
     const desktopBreakpoint = 1280;
 

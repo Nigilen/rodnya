@@ -3,6 +3,17 @@
   z-index: 1;
 }
 
+.carousel {
+  position: relative;
+}
+
+.carousel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, black -50%, transparent 30%);
+}
+
 .carousel__track {
   display: flex;
   list-style: none;
