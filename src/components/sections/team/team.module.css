@@ -67,6 +67,10 @@
   justify-content: center;
 }
 
+.control__disabled img {
+  opacity: 0;
+}
+
 .control__left {
   left: -6%;
 }

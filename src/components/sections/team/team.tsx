@@ -37,6 +37,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
           }}
           modules={[Navigation, Mousewheel]}
           navigation={{
+            disabledClass: styles.control__disabled,
             prevEl: '.control__left',
             nextEl: '.control__right',
           }}

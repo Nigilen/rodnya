@@ -182,6 +182,8 @@ button {
   display: none;
 }
 
+
+
 @media (width >= 1440px) {
   * {
     cursor: none;
