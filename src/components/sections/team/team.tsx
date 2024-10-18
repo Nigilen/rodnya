@@ -3,6 +3,7 @@
 import { FC } from 'react';
 import styles from './team.module.css';
 import cn from 'classnames';
+import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -91,8 +92,12 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
               <p className={styles.member__position} >{member.position}</p>
             </SwiperSlide>
           ))}
-          <button className={cn(styles.controls, styles.control__left, 'control__left')}></button>
-          <button className={cn(styles.controls, styles.control__right, 'control__right')}></button>
+          <button className={cn(styles.controls, styles.control__left, 'control__left')}>
+            <Image src={'./arrow-left.svg'} alt={''} width={24} height={62.57}/>
+          </button>
+          <button className={cn(styles.controls, styles.control__right, 'control__right')}>
+            <Image src={'./arrow-right.svg'} alt={''} width={24} height={62.57}/>
+          </button>
         </Swiper>
       </div>
     </section>

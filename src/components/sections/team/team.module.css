@@ -63,14 +63,16 @@
   z-index: 12;
   background-color: transparent;
   border: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .control__left {
-  left: 0;
+  left: -6%;
 }
 
 .control__right {
-  right: 0;
+  right: -6%;
 }
 
 @media (width < 1400px) {
