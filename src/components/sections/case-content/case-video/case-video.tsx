@@ -54,13 +54,13 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
         </button>
         <iframe
           width="100%"
+          height="100%"
           src={video}
           allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{
             border: 0,
-            aspectRatio: "16 / 9",
-            maxHeight: "calc(100% - 120px)",
+            maxHeight: "calc(100% - 60px)",
           }}
         />
       </Modal>
