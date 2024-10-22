@@ -35,21 +35,16 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
         onClose={() => {
           setIsActive(false);
         }}
-        style={{ padding: "10%" }}
+        style={{
+          padding: "120px 10%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+        }}
       >
-        <iframe
-          width="100%"
-          height="100%"
-          src={video}
-          allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{ border: 0 }}
-        />
         <button
           style={{
-            position: "absolute",
-            marginLeft: -41,
-            marginTop: -12,
+            marginBottom: 12,
           }}
           onClick={() => {
             setIsActive(false);
@@ -57,6 +52,17 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
         >
           <CloseIcon />
         </button>
+        <iframe
+          width="100%"
+          src={video}
+          allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{
+            border: 0,
+            aspectRatio: "16 / 9",
+            maxHeight: "calc(100% - 120px)",
+          }}
+        />
       </Modal>
     </div>
   );
