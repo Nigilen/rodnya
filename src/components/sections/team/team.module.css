@@ -3,7 +3,7 @@
 }
 
 .team {
-  background-color: var(--rose, #FF213C);
+  background-color: var(--rose, #ff213c);
   color: var(--main-color, #ffffff);
 }
 
@@ -18,7 +18,6 @@
   padding-inline: 56px;
   width: 100%;
 }
-
 
 .members {
   list-style: none;
@@ -59,12 +58,13 @@
   position: absolute;
   bottom: 0;
   top: 0;
-  width: 10vw;
   z-index: 12;
   background-color: transparent;
   border: none;
   align-items: center;
   justify-content: center;
+
+  filter: drop-shadow(0 0 0.75rem #000);
 }
 
 .control__disabled img {
@@ -72,11 +72,11 @@
 }
 
 .control__left {
-  left: -6%;
+  left: 0;
 }
 
 .control__right {
-  right: -6%;
+  right: 0;
 }
 
 @media (width < 1400px) {
@@ -110,5 +110,8 @@
   }
   .wrapper {
     padding-block: 54px;
+  }
+  .controls {
+    width: 10%;
   }
 }
