@@ -56,13 +56,13 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
             onClick={() => swiperNavigate("backward")}
             disabled={!swiperNavigationState.prevEnabled}
           >
-            <IconArrow />
+            <IconArrow className={styles.controls_icon} />
           </button>
           <button
             onClick={() => swiperNavigate("forward")}
             disabled={!swiperNavigationState.nextEnabled}
           >
-            <IconArrow direction="forward" />
+            <IconArrow className={styles.controls_icon} direction="forward" />
           </button>
         </div>
       </h2>
@@ -86,20 +86,9 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
             prevEl: ".control__left",
             nextEl: ".control__right",
           }}
-          // mousewheel={{
-          //   forceToAxis: false,
-          //   sensitivity: 1,
-          //   releaseOnEdges: true,
-          // }}
           wrapperClass="team-container"
           simulateTouch={true}
           scrollbar={false}
-          // scrollbar={{
-          //   el: '.swiper-scrollbar',
-          //   hide: true,
-          //   enabled: false,
-          //   draggable: false,
-          // }}
           breakpoints={{
             0: {
               slidesPerView: 1,
