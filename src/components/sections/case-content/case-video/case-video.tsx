@@ -35,12 +35,7 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
         onClose={() => {
           setIsActive(false);
         }}
-        style={{
-          padding: "120px 10%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-end",
-        }}
+        className={styles.modal}
       >
         <button
           style={{
