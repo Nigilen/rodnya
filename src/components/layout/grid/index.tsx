@@ -62,7 +62,7 @@ export const Grid: FC<Cases> = ({cases}) => {
             alias={'/cases/' + item.slug} 
             company={item.client} 
             title={item.title} 
-            img={item.slider.length < 1 ? item.preview : item.slider[0]} 
+            img={item.preview ?? item.slider[0]} 
           />
         ))}
       </ul>
