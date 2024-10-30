@@ -4,6 +4,7 @@ import { FC } from 'react';
 import styles from './actions.module.css';
 import { ContactsFooter } from '../../layout/footer/contacts/contacts';
 import cn from 'classnames';
+import Link from 'next/link';
 
 type Contacts = {
     photo: string,
@@ -39,8 +40,8 @@ export const Actions: FC<TActionsProps> = ({ heading, contacts, socials, brief }
     <section className={styles.actions}>
       {heading && <h2 className={styles.actions_heading}>{heading}</h2>}
       <div className={styles.actions_buttons}>
-        <a className={cn(styles.action_button, styles.action_request, 'button-primary')} href={`mailto:${contacts?.email_general}`}>Оставить заявку</a>
-        <a className={cn(styles.action_button, styles.action_brief, 'button-secondary')} href={brief} download>Скачать форму брифа</a>
+        <Link className={cn(styles.action_button, styles.action_request, 'button-primary')} href={`mailto:${contacts?.email_general}`}>Оставить заявку</Link>
+        <a className={cn(styles.action_button, styles.action_brief, 'button-secondary')} href={'/brief.pdf'} download>Скачать форму брифа</a>
       </div>
       {contacts && <ContactsFooter contacts={contacts} socials={socials}/>}
     </section>

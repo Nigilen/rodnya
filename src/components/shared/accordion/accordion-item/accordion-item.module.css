@@ -27,7 +27,7 @@
   letter-spacing: var(--letter-spacing-small, -0.04em);
   padding-block: 35px 36px;
   min-width: 75%;
-  max-width: 84%;
+  max-width: 75%;
 }
 
 .accordion_content {

@@ -11,6 +11,7 @@
 
 .list_item {
   list-style: disc;
+  text-wrap: balance;
 }
 
 @media (width < 1440px) {
