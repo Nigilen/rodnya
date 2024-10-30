@@ -35,7 +35,7 @@ type TActionsProps = {
   brief?: string;
 }
 
-export const Actions: FC<TActionsProps> = ({ heading, contacts, socials, brief }) => {
+export const Actions: FC<TActionsProps> = ({ heading, contacts, socials }) => {
   return (
     <section className={styles.actions}>
       {heading && <h2 className={styles.actions_heading}>{heading}</h2>}
