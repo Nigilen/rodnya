@@ -26,3 +26,23 @@ deploy-to-test-server:
   environment:
     name: test
     url: https://rodnya.friendlee.ru
+
+deploy-to-prod-server:
+  stage: deploy-prod
+  extends: .install-ssh
+  variables:
+    SSH_PRIVATE_KEY: $PROD_SSH_KEY
+    SERVER_KNOWN_HOSTS: $PROD_KNOWN_HOSTS
+  script:
+    - BUILD="npm install && npm run build"
+    - PROD_PATH="/var/www/rodnya.moscow/front"
+    - RESTART="pm2 reload rodnya.moscow"
+    - rsync -avz --progress --no-perms --no-owner --no-group --delete --exclude=".git/" --exclude="node_modules/" -e "ssh -p $PROD_PORT" . $PROD_USER@$PROD_HOST:$PROD_PATH
+    - ssh -p $PROD_PORT $PROD_USER@$PROD_HOST "cd $PROD_PATH && $BUILD && $RESTART"
+  only:
+    - main
+  tags:
+    - shell
+  environment:
+    name: prod
+    url: https://rodnya.moscow
