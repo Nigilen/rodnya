@@ -36,6 +36,7 @@ deploy-to-prod-server:
   script:
     - BUILD="npm install && npm run build"
     - PROD_PATH="/var/www/rodnya.moscow/front"
+    - cp ${PROD_ENV} .env
     - RESTART="pm2 reload rodnya.moscow"
     - rsync -avz --progress --no-perms --no-owner --no-group --delete --exclude=".git/" --exclude="node_modules/" -e "ssh -p $PROD_PORT" . $PROD_USER@$PROD_HOST:$PROD_PATH
     - ssh -p $PROD_PORT $PROD_USER@$PROD_HOST "cd $PROD_PATH && $BUILD && $RESTART"
