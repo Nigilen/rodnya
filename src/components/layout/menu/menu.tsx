@@ -31,7 +31,7 @@ export const Menu: FC<TMenuProps> = ({isOpen, handler}) => {
         <footer className={styles.nav_footer}>
           <div>
             <p className={styles.nav_footer_company}>ООО&nbsp;«Креативные&nbsp;ПИАР-решения»</p>
-            <Link href="/privacy" className={styles.nav_footer_privacy}>Политика конфиденциальности</Link>
+            <Link href="./policy.docx" target="_blank" download className={styles.nav_footer_privacy}>Политика конфиденциальности</Link>
           </div>
           <p className={styles.nav_footer_copyright}>©2024</p>
         </footer>
