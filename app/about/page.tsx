@@ -3,12 +3,12 @@ import { List } from "@/src/components/blocks/list/list";
 import { Actions } from "@/src/components/sections/actions/actions";
 import { Hero } from "@/src/components/sections/hero/hero";
 import { Services } from "@/src/components/sections/services/services";
-import { Team } from "@/src/components/sections/team/team";
 import { AwardListItem } from "@/src/ui-kit/award-list-item/AwardListItem";
 import styles from "./about.module.css";
 import cn from "classnames";
 import { getAbout, getContacts, getServices, getSocials, getTeam } from "@/src/api/api";
 import { HTMLBlock } from "@/src/ui-kit/html-block/html-block";
+import { TeamT } from "@/src/components/sections/team-t/team-t";
 
 type Awards = {
     name: string;
@@ -53,7 +53,8 @@ export default async function Page() {
         <Services header={"Услуги"} data={services.data} />
       }
       {team && 
-        <Team name={"Команда"} members={team.data} />
+        // <Team name={"Команда"} members={team.data} />
+        <TeamT name={"Команда"} members={team.data} />
       }
       {contacts && socials &&
         <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
