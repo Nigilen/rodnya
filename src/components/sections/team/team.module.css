@@ -11,6 +11,7 @@
   font: var(--h2-medium, normal 500 80px/0.95 var(--Manrope));
   letter-spacing: var(--letter-spacing-small, -0.04em);
   margin-bottom: 65px;
+  padding-inline: 56px;
 
   display: flex;
   justify-content: space-between;
@@ -100,6 +101,7 @@
   }
   .team__heading {
     margin-bottom: 70px;
+    padding-inline: 40px;
   }
   .wrapper {
     padding-block: 102px 103px;
@@ -112,6 +114,7 @@
   }
   .team__heading {
     margin-bottom: 72px;
+    padding-inline: 16px;
   }
   .member__position {
     margin-block-end: 5px;

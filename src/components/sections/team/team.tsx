@@ -48,7 +48,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
 
   return (
     <section className={cn(styles.team, styles.wrapper)}>
-      <h2 className={cn(styles.team__heading, "container")}>
+      <h2 className={cn(styles.team__heading)}>
         <span>{name}</span>
         <div className={styles.controls_top}>
           <button
