@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 
 
 type THeroCarouselP = {
-  heading: string,
+  heading?: string,
   items: string[],
   preview: string
 }
@@ -21,8 +21,8 @@ export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items, preview }) =>
   return (
     <section className={styles.hero_cases}>
       <h1>{heading}</h1>
-      <div className={cn(styles.carousel, 'swiper')}>
-        {items.length < 1 ?
+      <div className={cn(styles.carousel)}>
+        {items?.length < 1 ?
           <img className={styles.carousel__img} src={preview} />
         : 
           <Swiper 
@@ -44,7 +44,7 @@ export const HeroCarousel: FC<THeroCarouselP> = ({ heading, items, preview }) =>
             modules={[Autoplay, Pagination]}
             className={styles.carousel__track}
           >
-            {items.map((item, i) => (
+            {items?.map((item, i) => (
               <SwiperSlide className={styles.carousel__item} key={i}>
                 <img className={styles.carousel__img} src={item} width={1440} height={645} />
               </SwiperSlide>

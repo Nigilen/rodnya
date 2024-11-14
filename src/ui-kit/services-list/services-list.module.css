@@ -5,7 +5,7 @@
   margin-left: 2.5rem;
 }
 
-.list li:not(:last-child) {
+.list .list_item:not(:last-child) {
   margin-bottom: 40px;
 }
 

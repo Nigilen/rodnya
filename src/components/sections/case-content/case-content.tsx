@@ -8,7 +8,7 @@ import { Summaries } from "../../blocks/summaries/summaries";
 import { NextCaseLink } from "./next-case-link/next-case-link";
 import cn from 'classnames';
 import { FC, useEffect, useState } from "react";
-import { HTMLBlock } from "@/src/utils/html-block";
+import { HTMLBlock } from "@/src/ui-kit/html-block/html-block";
 
 type SingleCase = {
   slug: string,
@@ -66,12 +66,12 @@ export const CaseContent: FC<Data> = ({data, allCases}) => {
   return (
     <div>
       <article className={styles.case}>
-        <header className={cn(styles.case_header, 'container')}>
+        <header className={cn(styles.case_header)}>
           <CoupleColumns heading={data.title} project={data.client} classModifier="case-header-gap">
             <CaseAbout works={works} awards={data.awards} />
           </CoupleColumns>
         </header>
-        <section className={cn(styles.case_content, 'container')}>
+        <section className={cn(styles.case_content)}>
           <CoupleColumns heading='Задача и&nbsp;контекст' border>
             <HTMLBlock rawHtml={data.task} />
           </CoupleColumns>   

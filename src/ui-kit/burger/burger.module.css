@@ -7,12 +7,12 @@
   align-items: flex-end;
 }
 
-.burger span {
+.burger_line {
   display: block;
   block-size: 7px;
   inline-size: 50px;
 }
 
-.burger span:last-child {
+.burger_line:last-child {
   inline-size: 26px;
 }

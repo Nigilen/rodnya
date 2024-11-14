@@ -18,12 +18,13 @@
   color: var(--rose, #FF213C);
 }
 
-.footer__index p {
+.footer__index_left {
   max-width: 240px;
 }
 
 .footer__index_right {
   text-align: right;
+  max-width: 240px;
 }
 
 

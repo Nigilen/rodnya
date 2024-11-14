@@ -1,8 +1,7 @@
 'use client'
 import { FC, useState } from "react";
-import { CasesPreview } from "../../blocks/cases-preview";
-// import { useInView } from "react-intersection-observer";
-import styles from "./grid.module.css";
+import { CasesPreview } from "../cases-preview";
+import styles from "./CasesGrid.module.css";
 import cn from 'classnames';
 import { useInView } from "react-intersection-observer";
 
@@ -33,7 +32,7 @@ type Cases = {
   cases: Case[]
 }
 
-export const Grid: FC<Cases> = ({cases}) => {
+export const CasesGrid: FC<Cases> = ({cases}) => {
   const [state, setState] = useState(0);
   const [count, setCount] = useState(1);
 
@@ -55,7 +54,7 @@ export const Grid: FC<Cases> = ({cases}) => {
   
   return (
     <>
-      <ul className={cn(styles.grid, styles.wrapper, 'container')}>
+      <ul className={cn(styles.grid, styles.wrapper)}>
         {twoCase.map((item: Case) => (
           <CasesPreview 
             key={item.slug} 

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import styles from './contacts-footer.module.css';
 import cn from 'classnames';
+import Link from 'next/link';
 
 
 type Contacts = {
@@ -36,17 +37,17 @@ export const ContactsFooter: FC<Contacts & Socials> = ({contacts, socials}) => {
           <div className={cn(styles.column, styles.column__contacts)}>
             <dt className={styles.column__title}>Контакты</dt>
             <dd className={styles.column__definition}>
-              <a href={`mailto:${contacts.email_general}`}>{contacts.email_general}</a>
+              <Link href={`mailto:${contacts.email_general}`}>{contacts.email_general}</Link>
             </dd>
             <dd className={styles.column__definition}>
-              <a href={`tel:${contacts.phone}`}>{contacts.phone}</a>
+              <Link href={`tel:${contacts.phone}`}>{contacts.phone}</Link>
             </dd>
           </div>
           <div className={cn(styles.column, styles.column__social)}>
             <dt className={styles.column__title}>Соцсети</dt>
             {socials?.map((social) => (
               social.show_in_footer && <dd className={styles.column__definition} key={social.id}>
-                <a href={social.url} target='blank'>{social.title}</a>
+                <Link href={social.url} target='_blank'>{social.title}</Link>
               </dd>
             ))}
           </div>

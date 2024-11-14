@@ -3,7 +3,6 @@
 import { FC, useState } from "react";
 
 import cn from "classnames";
-import Image from "next/image";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation } from "swiper/modules";
 
@@ -131,34 +130,7 @@ export const Team: FC<TTeamProps> = ({ name, members }) => {
               <p className={styles.member__position}>{member.position}</p>
             </SwiperSlide>
           ))}
-          <button
-            className={cn(
-              styles.controls,
-              styles.control__left,
-              "control__left"
-            )}
-          >
-            <Image
-              src={"./arrow-left.svg"}
-              alt={""}
-              width={24}
-              height={62.57}
-            />
-          </button>
-          <button
-            className={cn(
-              styles.controls,
-              styles.control__right,
-              "control__right"
-            )}
-          >
-            <Image
-              src={"./arrow-right.svg"}
-              alt={""}
-              width={24}
-              height={62.57}
-            />
-          </button>
+          
         </Swiper>
       </div>
     </section>

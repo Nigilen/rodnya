@@ -10,8 +10,8 @@ type Props = {
 
 export const NextCaseLink: FC<Props> = ({slug}) => {
   return (
-    <div className={styles.next_case_link_wrapper}>
+    <span className={styles.next_case_link_wrapper}>
       <Link className={cn(styles.next_case_link, 'button-link')} href={`${FRONT_BASE_URL}/cases/${slug}`}>Следующий кейс</Link>
-    </div>
+    </span>
   );
 }

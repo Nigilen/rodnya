@@ -13,13 +13,13 @@ export const Hero: FC<HeroProps> = ({title, description, background, video}) => 
 
   return (
     <section 
-      className={cn(styles.hero, background && [styles.hero__with_bg], video && [styles.hero__with_bg])} 
+      className={cn(styles.hero, {[styles.hero__with_bg]: background}, {[styles.hero__with_bg]: video})} 
       style={{ backgroundImage: `url(${background})` }}
     >
       <video className={styles.hero_video} width="auto" height="100%" preload="true" autoPlay muted loop playsInline>
         <source src={video} type="video/webm" />
       </video>
-      <div className={cn(styles.hero_content, background && [styles.hero_content__proportional] || video && [styles.hero_content__proportional])}>
+      <div className={cn(styles.hero_content, {[styles.hero_content__proportional]: background}, {[styles.hero_content__proportional]: video})}>
         <h1 className={styles.hero_title}>{ title }</h1>
         { description && <p className={styles.hero_description}>{description}</p> }
       </div>

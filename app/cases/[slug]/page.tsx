@@ -25,15 +25,21 @@ export default async function Page(
   }
   
   return (
-    <div>
-      {caseDate?.video_link ? 
+      <div>
         
-        <CaseVideo video={caseDate.video_link} preview={caseDate.video_preview} />
-        :
-        <HeroCarousel heading={""} items={caseDate?.slider} preview={caseDate?.preview} />
-      }
-      <CaseContent data={caseDate} allCases={allCases} />
-      <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
-    </div>
+        { caseDate?.video_link && 
+          <CaseVideo video={caseDate.video_link} preview={caseDate.video_preview} />
+        }
+        { !caseDate?.video_link && 
+          <HeroCarousel heading={""} items={caseDate?.slider} preview={caseDate?.preview} />
+        }
+        { caseDate && allCases && 
+          <CaseContent data={caseDate} allCases={allCases} />
+        }
+        { contacts && socials &&
+          <Actions heading="Как с нами связаться?" contacts={contacts.data} socials={socials.data} />
+        }
+      </div>
+    
   )
 }

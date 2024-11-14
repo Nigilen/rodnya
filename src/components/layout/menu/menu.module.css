@@ -56,15 +56,15 @@
 }
 
 .nav_item_link,
-.nav_footer div,
-.nav_footer p {
+.nav_footer_company,
+.nav_footer_copyright {
   transition: translate 1s cubic-bezier(.19,1,.22,1);
   translate: 0 105%;
 }
 
 .menu__open .nav_item_link,
-.menu__open .nav_footer div, 
-.menu__open .nav_footer p {
+.menu__open .nav_footer_copyright, 
+.menu__open .nav_footer_company {
   translate: 0 0;
 }
 
@@ -93,9 +93,6 @@
   .menu {
     width: 70%;
   }
-  /* .menu__list {
-    row-gap: 45px;
-  } */
 }
 
 @media (width < 768px) {

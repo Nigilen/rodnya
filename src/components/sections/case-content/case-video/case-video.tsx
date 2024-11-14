@@ -27,7 +27,7 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
           type="button"
           onClick={() => setIsActive(!isActive)}
         >
-          <img src="/play.svg" alt="play" />
+          <img className={styles.play_icon} src="/play.svg" alt="play" />
         </button>
       )}
       <Modal
@@ -38,9 +38,7 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
         className={styles.modal}
       >
         <button
-          style={{
-            marginBottom: 12,
-          }}
+          className={styles.modal_close}
           onClick={() => {
             setIsActive(false);
           }}
@@ -48,15 +46,12 @@ export const CaseVideo: FC<Props> = ({ video, preview }) => {
           <CloseIcon />
         </button>
         <iframe
+          className={styles.modal_iframe}
           width="100%"
           height="100%"
           src={video}
           allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{
-            border: 0,
-            maxHeight: "calc(100% - 60px)",
-          }}
         />
       </Modal>
     </div>

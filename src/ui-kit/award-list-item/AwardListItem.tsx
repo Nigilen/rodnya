@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import styles from './award.module.css';
+import styles from './AwardListItem.module.css';
 
-export type TAward = {
+type Props = {
   text: string;
   counter: number;
 };
 
-export const Award: FC<TAward> = ({ text, counter }) => {
+export const AwardListItem: FC<Props> = ({ text, counter }) => {
   return (
     <li className={styles.award}>
       <p className={styles.award__text}>{text}</p>

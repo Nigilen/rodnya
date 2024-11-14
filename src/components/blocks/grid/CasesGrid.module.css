@@ -1,5 +1,5 @@
 .wrapper {
-  padding-block: 56px;
+  padding: 56px;
 }
 
 .grid {
@@ -22,5 +22,12 @@
   }
   .wrapper {
     padding-block: 0;
+    padding-inline: 40px;
+  }
+}
+
+@media (width < 768px) {
+  .wrapper {
+    padding-inline: 16px;
   }
 }

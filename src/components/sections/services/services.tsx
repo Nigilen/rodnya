@@ -5,8 +5,8 @@ import styles from './services.module.css';
 import { AccordionItem } from '../../shared/accordion/accordion-item/accordion-item';
 import { Accordion } from '../../shared/accordion';
 import cn from 'classnames';
-import { Paragraph } from '@/src/ui-kit/paragraph/paragraph';
 import { ServicesList } from '@/src/ui-kit/services-list/services-list';
+import { HTMLBlock } from '@/src/ui-kit/html-block/html-block';
 
 
 export type TList = {
@@ -32,26 +32,28 @@ type TServicesProps = {
 };
 
 export const Services: FC<TServicesProps> = ({header, data}) => {
-
   return (
-    <div className={cn(styles.services, styles.wrapper, 'container')}>
+    <div className={cn(styles.services, styles.wrapper)}>
       <h2 className={styles.services_heading}>{header}</h2>
-      <Accordion>
-        {data.map((service: TService) => (
-          <AccordionItem key={service.id} title={service.title} >
-            <div className={styles.service_content}>
-              {service.content.map((item, i: number) => {
-                if (Array.isArray(item.value)) {
-                  return <ServicesList list={item.value} key={i}/>
-                }
-                if (typeof item.value === 'string') {
-                  return <Paragraph text={item.value} key={i}/>
-                }
-              })}
-            </div>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      {data && 
+        <Accordion>
+          {data.map((service: TService) => (
+            <AccordionItem key={service.id} title={service.title} >
+              <div className={styles.service_content}>
+                {service.content.map((item, i: number) => {
+                  if (Array.isArray(item.value)) {
+                    return <ServicesList list={item.value} key={i}/>
+                  }
+                  if (typeof item.value === 'string') {
+
+                    return <HTMLBlock className={styles.paragraph} rawHtml={item.value} key={i}/>
+                  }
+                })}
+              </div>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      }
       
     </div>
   );

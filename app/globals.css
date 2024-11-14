@@ -149,30 +149,10 @@ button {
 
 .button-link:hover {
   border-bottom-color: var(--primary-color, #000000);
-  /* padding-block-end: 5px; */
 }
 
-.container {
-  padding-inline: 56px;
-}
 
-#canvas {
-  z-index: 1;
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-  
-.main__img {
-  position: fixed;
-  width: 58%;
-  inset: 0;
-  margin: auto;
-  height: auto;
-}
+
 
 .remove_swiper_overflow .swiper {
   overflow: visible;
@@ -182,8 +162,6 @@ button {
   display: none;
 }
 
-
-
 @media (width >= 1440px) {
   * {
     cursor: none;
@@ -191,18 +169,14 @@ button {
 }
 
 @media (width < 1440px) {
-  .container {
-    padding-inline: 40px;
-  }
+
   :root {
     --h2-medium: normal 500 80px/1.1875 var(--Manrope);
     --h3-medium: normal 500 40px/2.375 var(--Manrope);
   
     --link-text: normal 500 35px/0.95 var(--Manrope);
   }
-  .main__img {
-    width: 80%;
-  }
+
 }
 
 @media (width < 768px) {
@@ -219,10 +193,5 @@ button {
     --awards-text: normal 700 19px/1.3 var(--Manrope);
   }
   
-  .container {
-    padding-inline: 16px;
-  }
-  .main__img {
-    width: 77%;
-  }
+
 }

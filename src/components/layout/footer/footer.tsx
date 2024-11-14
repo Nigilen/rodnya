@@ -10,11 +10,11 @@ export const Footer: FC = ({}) => {
 
   return (
     <>
-      {pathname !== "/" ? (
+      { pathname !== "/" &&
         <footer className={styles.footer}>
           <div>
             <section className={styles.footer_bottom}>
-              <p>ООО&nbsp;«Креативные&nbsp;ПИАР-решения»</p>
+              <p className={styles.company}>ООО&nbsp;«Креативные&nbsp;ПИАР-решения»</p>
               <a
                 target="_blank"
                 rel="noopener"
@@ -23,13 +23,12 @@ export const Footer: FC = ({}) => {
               >
                 Политика конфиденциальности
               </a>
-              <p>©2024</p>
+              <p className={styles.copyrite}>©2024</p>
             </section>
           </div>
         </footer>
-      ) : (
-        <FooterMainPage />
-      )}
+      }
+      { pathname === "/" && <FooterMainPage />}
     </>
   );
 };

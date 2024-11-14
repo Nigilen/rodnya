@@ -26,25 +26,27 @@ export default async function Page() {
 
   return (
     <>
-      <Hero title="Контакты" background={contacts.data.photo} />
+      {contacts && <Hero title="Контакты" background={contacts.data.photo} />}
       <address className={styles.contacts}>
         <dl className={styles.contacts_list}>
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Адрес</dt>
+            {contacts && 
             <dd className={cn(styles.contacts_item__definition, styles.contacts_item__definition_address)}>
               {contacts.data.address_name}
-            </dd>
+            </dd>}
           </div>
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Телефон</dt>
             <dd className={styles.contacts_item__definition}>
-              <a href={`tel:${contacts.data.phone}`}>{contacts.data.phone}</a>
+              {contacts && 
+              <a href={`tel:${contacts.data.phone}`}>{contacts.data.phone}</a>}
             </dd>
           </div>
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Соцсети</dt>
             <div>
-              {socials.data.map((social: Socials['data'][0]) => (
+              {socials && socials.data.map((social: Socials['data'][0]) => (
                 <dd className={styles.contacts_item__definition} key={social.id}>
                   <a href={social.url} target='blank'>{social.title}</a>
                 </dd>
@@ -54,19 +56,24 @@ export default async function Page() {
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Обсудить проект</dt>
             <dd className={styles.contacts_item__definition}>
-              <a href={`mailto:${contacts.data.email_general}`}>{contacts.data.email_general}</a>
+              {contacts && 
+                <a href={`mailto:${contacts.data.email_general}`}>{contacts.data.email_general}</a>
+              }
             </dd>
           </div>
           <div className={styles.contacts_item}>
             <dt className={styles.contacts_item__term}>Стать частью команды</dt>
             <dd className={styles.contacts_item__definition}>
-            <a href={`mailto:${contacts.data.email_hr}`}>{contacts.data.email_hr}</a>
+              {contacts && 
+                <a href={`mailto:${contacts.data.email_hr}`}>{contacts.data.email_hr}</a>
+              }
             </dd>
           </div>
         </dl>
       </address>
-      <Actions brief={contacts.data.brief} />
-
+      {contacts && 
+        <Actions brief={contacts.data.brief} />
+      }
     </>
   );
 }

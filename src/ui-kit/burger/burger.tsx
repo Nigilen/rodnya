@@ -9,8 +9,8 @@ type TBurgerProps = {
 export const Burger: FC<TBurgerProps> = ({handler, color}) => {
   return (
     <button className={styles.burger} onClick={handler}>
-      <span style={{backgroundColor: color}}></span>
-      <span style={{backgroundColor: color}}></span>
+      <span className={styles.burger_line} style={{backgroundColor: color}}></span>
+      <span className={styles.burger_line} style={{backgroundColor: color}}></span>
     </button>
   )
 }

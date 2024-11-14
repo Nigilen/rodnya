@@ -3,7 +3,7 @@ import styles from "./couple-columns.module.css";
 import "./modifiers.css";
 import cn from "classnames";
 
-type TCoupleColumnsProps = {
+type Props = {
   heading?: string,
   border?: boolean,
   project?: string, 
@@ -11,7 +11,7 @@ type TCoupleColumnsProps = {
   classModifier?: string,
 }
 
-export const CoupleColumns: FC<TCoupleColumnsProps> = ({heading, border, project, children, classModifier}) => {
+export const CoupleColumns: FC<Props> = ({heading, border, project, children, classModifier}) => {
   return (
     <>{project && <div className={styles.project_name}>{project}</div>}
       <div className={cn(styles.couple_columns, border && [styles.top_border], classModifier)}>

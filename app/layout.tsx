@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     siteName: 'RODNYA Creative PR Studio',
     locale: 'ru_RU',
     type: 'website',
+    // images: {
+    //   url: FRONT_BASE_URL + '/member.webp',
+    //   width: 200,
+    //   height: 230,
+    // },
+
   },
 };
 
